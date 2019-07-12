@@ -22,12 +22,11 @@ public class mainMenu : MonoBehaviour
 
     void onCreateCaster()
     {
-    	Debug.Log("onCreate ran");
+    	SceneManager.LoadScene("casterCreation");
     }
 
     void onSample()
     {
-    	Debug.Log("onSample ran");
     	SceneManager.LoadScene("SampleScene");
     }
 }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/MainMenu.unity
     guid: c5f0fa85b13fe8c4591d1ccf9f224020
+  - enabled: 1
+    path: Assets/Scenes/CasterCreation/casterCreation.unity
+    guid: b8ed86b58d53e2a46aa7736113808d4e
   m_configObjects: {}

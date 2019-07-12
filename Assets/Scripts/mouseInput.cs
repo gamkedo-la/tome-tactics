@@ -159,7 +159,11 @@ public class mouseInput : MonoBehaviour
 					return;
 				}
 				else
+				{
 					agent.speed = 3.5f;
+
+					selection.GetComponent<casterScript>().startMove();
+				}
 			}
 
 			// print(agent.remainingDistance);

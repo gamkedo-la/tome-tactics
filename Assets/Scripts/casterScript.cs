@@ -8,20 +8,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class casterScript : MonoBehaviour
 {
 	[SerializeField] private int hp, range = 0;
 	[SerializeField] private Spell[] spellBook;
     private Animator anim;
+    private NavMeshAgent agent;
+
 	public Transform cam;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
     }
 
-    void Update() { }
+    void Update()
+    {
+        if (anim.GetBool("move") && !agent.hasPath)
+            stopMove();
+    }
 
     public void takeDamage(int damage) { hp -= damage; }
 
@@ -30,4 +38,9 @@ public class casterScript : MonoBehaviour
     public int getRange() { return range; }
 
     public void castAnimation() { anim.Play("basicCast 0", 0, 0.0f); }
+
+    public void startMove() { anim.SetBool("move", true); }
+
+    private void stopMove() { anim.SetBool("move", false); }
+
 }

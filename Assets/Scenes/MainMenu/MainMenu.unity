@@ -269,7 +269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Pre-Alpha July 2019
+  m_Text: Gamkedo Pre-Pitch July 2019
 --- !u!222 &662880731
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Casters
+  m_Text: Tome Tactics
 --- !u!222 &1543397572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Create-a-Caster
+  m_Text: Spell Selection Scene
 --- !u!222 &2004113244
 CanvasRenderer:
   m_ObjectHideFlags: 0
