@@ -49,7 +49,7 @@ public class mouseInput : MonoBehaviour
 			// Casting Fireball spell
 			if (state == 1)
 			{
-				selection.GetComponent<casterScript>().castAnimation();
+				selection.GetComponent<casterScript>().startCast();
 
 				GameObject ball = Instantiate(fireball, selection.transform.position, Quaternion.identity);
 				ball.GetComponent<toss>().setDestination(hit.point);
@@ -61,7 +61,7 @@ public class mouseInput : MonoBehaviour
 			// Casting Icicle spell
 			if (state == 2)
 			{
-				selection.GetComponent<casterScript>().castAnimation();
+				selection.GetComponent<casterScript>().startCast();
 
 				GameObject ice = Instantiate(icicle,
 						(hit.point + (new Vector3(0.0f, 10.0f, 0.0f))),
@@ -76,7 +76,7 @@ public class mouseInput : MonoBehaviour
 			// Casting Lightning spell
 			if (state == 3)
 			{
-				selection.GetComponent<casterScript>().castAnimation();
+				selection.GetComponent<casterScript>().startCast();
 				
 				Instantiate(lightning,
 						(hit.point + (new Vector3(0.0f, 10.0f, 0.0f))),
@@ -170,7 +170,10 @@ public class mouseInput : MonoBehaviour
 			ShowPath.currPath = agent.path.corners;
 		}
 		else
+		{
+			clearUI();
 			ShowPath.currPath = null;
+		}
     }
 
     // Clear selection, state, and UI
