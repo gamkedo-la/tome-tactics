@@ -269,7 +269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Gamkedo Pre-Pitch July 2019
+  m_Text: Gamkedo Pitch 14th of July 2019
 --- !u!222 &662880731
 CanvasRenderer:
   m_ObjectHideFlags: 0

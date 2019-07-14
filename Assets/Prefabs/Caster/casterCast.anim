@@ -512,4 +512,12 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.98333335
+    functionName: stopCast
+    data: 
+    objectReferenceParameter: {fileID: 6249672370896913687, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

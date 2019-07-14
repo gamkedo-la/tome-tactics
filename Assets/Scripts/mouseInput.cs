@@ -3,6 +3,7 @@
 // Attached to empty object.
 // Handles left & right mouse button presses
 // and tracks selected Player GameObjects & spells.
+// Also handles game logic
 
 using System.Collections;
 using System.Collections.Generic;
@@ -56,6 +57,7 @@ public class mouseInput : MonoBehaviour
 
 				turn++;
 				clearUI();
+				return;
 			}
 
 			// Casting Icicle spell
@@ -71,6 +73,7 @@ public class mouseInput : MonoBehaviour
 
 				turn++;
 				clearUI();
+				return;
 			}
 
 			// Casting Lightning spell
@@ -84,6 +87,7 @@ public class mouseInput : MonoBehaviour
 
 				turn++;
 				clearUI();
+				return;
 			}
 
 			// Debug.Log("Contact made");
@@ -190,7 +194,7 @@ public class mouseInput : MonoBehaviour
     //
     //
     // Put all this in a separate class later //
-    //
+    // (also comment later)
     //
     public GameObject circ;
     void testCircle(float scale)
