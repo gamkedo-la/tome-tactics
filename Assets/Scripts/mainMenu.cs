@@ -22,7 +22,7 @@ public class mainMenu : MonoBehaviour
 
     void onCreateCaster()
     {
-    	SceneManager.LoadScene("casterCreation");
+    	SceneManager.LoadScene("spellSelection");
     }
 
     void onSample()

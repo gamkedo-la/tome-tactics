@@ -18,7 +18,7 @@ public class toss : MonoBehaviour
 
     void Start()
     {
-        origin = transform.position;
+        origin = transform.position + new Vector3(0.0f, 2.0f, 0.0f);
         hitBox = GetComponent<SphereCollider>();
     }
 
@@ -28,7 +28,10 @@ public class toss : MonoBehaviour
         time += Time.deltaTime * 1.5f;
 
     	if (destination.y > transform.position.y)
+        {
     		Destroy(gameObject);
+            print("desination height higher than positon");
+        }
     }
 
     public void setDestination(Vector3 newDest)
@@ -63,7 +66,7 @@ public class toss : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-    	// Debug.Log("OnTriggerEnter ran");
+    	Debug.Log("OnCollisionEnter ran");
 
     	if (coll.collider.tag != "Player")
     	{
