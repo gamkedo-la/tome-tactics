@@ -19,8 +19,14 @@ public class casterScript : MonoBehaviour
 
 	public Transform cam;
 
+    public GameObject transferSpells;
+
     void Start()
     {
+        transferSpells = GameObject.Find("Caster Spells");
+        if (this.tag == "Player2" && transferSpells != null)
+            spellBook = transferSpells.GetComponent<spellContainer>().getSpells(1);
+
         // anim = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();
     }
