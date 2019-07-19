@@ -570,6 +570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763584247}
   - component: {fileID: 763584248}
+  - component: {fileID: 763584249}
   m_Layer: 2
   m_Name: Input
   m_TagString: Player
@@ -605,16 +606,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
   path: {fileID: 632652916}
-  fireball: {fileID: 2225526153860046457, guid: 18c3cc6b3113ea34db214dc82e915f36,
-    type: 3}
-  icicle: {fileID: 4566784354383301010, guid: 230242de43d599c46a0ab26bc3800130, type: 3}
-  lightning: {fileID: 459401243664375902, guid: 68acc0761169e544b89f8583e0b020e8,
-    type: 3}
   selection: {fileID: 0}
   state: 0
   handle: {fileID: 1991004370}
   debug: {fileID: 63390588}
   rangeCircle: {fileID: 406692930}
+  testMinion: {fileID: 0}
+  spellHandle: {fileID: 763584249}
+--- !u!114 &763584249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763584246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4053fa591ad3c42af3c09883c481e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireball: {fileID: 2225526153860046457, guid: 18c3cc6b3113ea34db214dc82e915f36,
+    type: 3}
+  icicle: {fileID: 4566784354383301010, guid: 230242de43d599c46a0ab26bc3800130, type: 3}
+  lightning: {fileID: 459401243664375902, guid: 68acc0761169e544b89f8583e0b020e8,
+    type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

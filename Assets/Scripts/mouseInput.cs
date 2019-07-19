@@ -16,13 +16,14 @@ public class mouseInput : MonoBehaviour
 {
 	public Camera cam;
 	public ShowPath path;
-	public GameObject fireball, icicle, lightning;
 	public GameObject selection = null;
 	public int state = 0;
 	public UIHandler handle;
 
 	[SerializeField] private Text debug;
 	[SerializeField] private GameObject rangeCircle;
+	[SerializeField] private minionScript[] listMinions;
+	[SerializeField] private spellHandler spellHandle;
 
 	private byte turn = 1;
 
@@ -48,46 +49,31 @@ public class mouseInput : MonoBehaviour
 				clearUI(); // No contact
 			}
 
-			// Casting Fireball spell
-			if (state == 1)
+			/////////////////////
+			// Casting Spells! //
+			/////////////////////
+			if (state > 0)
 			{
-				selection.GetComponent<casterScript>().startCast();
+				switch (state)
+				{
+					case 1:
+						spellHandle.castFireball(selection, hit.point);
+						break;
+					case 2:
+						spellHandle.castIcicle(selection, hit.point);
+						break;
+					case 3:
+						spellHandle.castLightning(selection, hit.point);
+						break;
+				}
+				turn++; // Switch turns
+				clearUI(); // Clear the UI and selection field
 
-				GameObject ball = Instantiate(fireball, selection.transform.position, Quaternion.identity);
-				ball.GetComponent<toss>().setDestination(hit.point);
-
-				turn++;
-				clearUI();
-				return;
-			}
-
-			// Casting Icicle spell
-			if (state == 2)
-			{
-				selection.GetComponent<casterScript>().startCast();
-
-				GameObject ice = Instantiate(icicle,
-						(hit.point + (new Vector3(0.0f, 10.0f, 0.0f))),
-						Quaternion.identity);
-
-				ice.transform.Rotate(-90.0f, 0.0f, 0.0f, Space.Self);
-
-				turn++;
-				clearUI();
-				return;
-			}
-
-			// Casting Lightning spell
-			if (state == 3)
-			{
-				selection.GetComponent<casterScript>().startCast();
-				
-				Instantiate(lightning,
-						(hit.point + (new Vector3(0.0f, 10.0f, 0.0f))),
-						Quaternion.identity);
-
-				turn++;
-				clearUI();
+				// Check if there are any minions to move
+				// if so, move them!
+				if (listMinions.Length == 0 || listMinions[0])
+					foreach (minionScript minion in listMinions)
+						minion.moveMinion();
 				return;
 			}
 
@@ -98,7 +84,9 @@ public class mouseInput : MonoBehaviour
 				clearUI(); // Ignore non-Player objects
 			}
 
-			// Player turns
+			///////////////////////////////////////////////////////////////
+			// Player turns, prevent selection of other player's objects //
+			///////////////////////////////////////////////////////////////
 			// Odd = player 1
 			if ((turn % 2 != 0) && (hit.collider.gameObject.tag != "Player"))
 			{
