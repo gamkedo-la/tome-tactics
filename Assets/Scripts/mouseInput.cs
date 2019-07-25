@@ -71,7 +71,7 @@ public class mouseInput : MonoBehaviour
 
 				// Check if there are any minions to move
 				// if so, move them!
-				if (listMinions.Length == 0 || listMinions[0])
+				if (listMinions == null || listMinions.Length == 0 || listMinions[0])
 					foreach (minionScript minion in listMinions)
 						minion.moveMinion();
 				return;

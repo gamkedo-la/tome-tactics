@@ -14,15 +14,9 @@ public class spellHandler : MonoBehaviour
 	public GameObject icicle;
 	public GameObject lightning;
     
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
     public void castFireball(GameObject selection, Vector3 target)
     {

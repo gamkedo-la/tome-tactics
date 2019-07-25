@@ -316,4 +316,7 @@ MonoBehaviour:
   hp: 100
   range: 3
   spellBook: []
+  anim: {fileID: 0}
+  animMove: {fileID: 0}
   cam: {fileID: 0}
+  transferSpells: {fileID: 0}

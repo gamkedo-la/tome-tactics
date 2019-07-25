@@ -14,7 +14,7 @@ public class casterScript : MonoBehaviour
 {
 	[SerializeField] private int hp, range = 0;
 	[SerializeField] private Spell[] spellBook;
-    public Animator anim;
+    public Animator anim, animMove;
     private NavMeshAgent agent;
 
 	public Transform cam;
@@ -33,7 +33,7 @@ public class casterScript : MonoBehaviour
 
     void Update()
     {
-        if (anim.GetBool("move") && !agent.hasPath)
+        if (animMove.GetBool("move") && !agent.hasPath)
             stopMove();
     }
 
@@ -43,16 +43,30 @@ public class casterScript : MonoBehaviour
 
     public int getRange() { return range; }
 
-    public void startCast() { anim.SetBool("cast", true); }
+    public void startCast()
+    {
+        agent.enabled = false;
+        gameObject.transform.parent = anim.transform;
+        anim.SetBool("cast", true);
+    }
 
     public void stopCast()
     {
-        // print("stopCast");
         anim.SetBool("cast", false);
+        anim.transform.DetachChildren();
+        agent.enabled = true;
     }
 
-    public void startMove() { anim.SetBool("move", true); }
+    public void startMove()
+    {
+        gameObject.transform.parent = animMove.transform;
+        animMove.SetBool("move", true);
+    }
 
-    private void stopMove() { anim.SetBool("move", false); }
+    private void stopMove()
+    {
+        animMove.SetBool("move", false);
+        animMove.transform.DetachChildren();
+    }
 
 }

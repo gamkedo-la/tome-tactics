@@ -123,9 +123,12 @@ public class schoolHandler : MonoBehaviour
 		spells[0] = tex.text;
 
 		// Second Spell
-		t = transform.Find("Spell List Canvas/Spells/Spell Second/Text");
-		tex = t.gameObject.GetComponent<Text>();
-		spells[1] = tex.text;
+		if (size > 1)
+		{
+			t = transform.Find("Spell List Canvas/Spells/Spell Second/Text");
+			tex = t.gameObject.GetComponent<Text>();
+			spells[1] = tex.text;
+		}
 
 		// foreach (string s in spells)
 		// 	print(s);
