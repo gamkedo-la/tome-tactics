@@ -554,6 +554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
+      objectReference: {fileID: 842446033}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: animMove
+      value: 
       objectReference: {fileID: 1253755598}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
@@ -575,6 +580,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2385308102249309006, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4106754673309148194, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_BlockingObjects
@@ -583,12 +593,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2dd1b3df6c57ff48be05e1f532935c3, type: 3}
---- !u!1 &741262353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6249672370896913687, guid: a2dd1b3df6c57ff48be05e1f532935c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 741262352}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &842446031
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +605,7 @@ GameObject:
   - component: {fileID: 842446033}
   - component: {fileID: 842446032}
   m_Layer: 0
-  m_Name: Animation Dummy 1
+  m_Name: Animation Dummy Still
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cd99c554be24a4d98172ede57c90d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childCaster: {fileID: 1788033723}
+  childCaster: {fileID: 0}
 --- !u!95 &842446033
 Animator:
   serializedVersion: 3
@@ -876,7 +880,7 @@ GameObject:
   - component: {fileID: 1253755598}
   - component: {fileID: 1253755597}
   m_Layer: 0
-  m_Name: Animation Dummy 2
+  m_Name: Animation Dummy Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cd99c554be24a4d98172ede57c90d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childCaster: {fileID: 741262353}
+  childCaster: {fileID: 0}
 --- !u!95 &1253755598
 Animator:
   serializedVersion: 3
@@ -905,7 +909,7 @@ Animator:
   m_GameObject: {fileID: 1253755596}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f7ca7f13ea862e84697093e0569d72ef, type: 2}
+  m_Controller: {fileID: 9100000, guid: ae2fda2221404ce4e8bf17dac8110036, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1628,6 +1632,11 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 842446033}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: animMove
+      value: 
+      objectReference: {fileID: 1253755598}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
@@ -1666,12 +1675,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2dd1b3df6c57ff48be05e1f532935c3, type: 3}
---- !u!1 &1788033723 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6249672370896913687, guid: a2dd1b3df6c57ff48be05e1f532935c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1788033722}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1812394309
 GameObject:
   m_ObjectHideFlags: 0

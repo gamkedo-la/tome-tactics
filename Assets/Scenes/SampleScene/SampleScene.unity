@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 763584248}
   - component: {fileID: 763584249}
   m_Layer: 2
-  m_Name: Input
+  m_Name: Input and Game Logic
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,6 +1501,21 @@ PrefabInstance:
       propertyPath: animMove
       value: 
       objectReference: {fileID: 1342613499}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[1].range
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[2].range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[0].range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
@@ -1749,6 +1764,11 @@ PrefabInstance:
       propertyPath: animMove
       value: 
       objectReference: {fileID: 1342613499}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[0].range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera

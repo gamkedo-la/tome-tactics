@@ -13,7 +13,7 @@ public class Spell : System.Object
 	[SerializeField] private string spellName = "";
 	[SerializeField] private int damage = 0;
 	[SerializeField] private Color UIColor = Color.white;
-	[SerializeField] private int range = 0;
+	[SerializeField] private int range = 0; // Raius from caster
 
 	// Setters
 	public void setName(string newName) { spellName = newName; }

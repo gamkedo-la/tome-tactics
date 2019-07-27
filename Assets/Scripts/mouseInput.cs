@@ -26,11 +26,20 @@ public class mouseInput : MonoBehaviour
 	[SerializeField] private spellHandler spellHandle;
 
 	private byte turn = 1;
+	private bool skipRangeCalc = false;
+	public targeting targetingOrb;
 
     void Start() { }
 
     void Update()
     {
+    	if (state > 0 && !skipRangeCalc)
+    	{
+			rangeCircle.GetComponent<moveRange>().spellRange(selection, targetingOrb.getRange());
+			rangeCircle.GetComponent<moveRange>().showRange(true);
+			skipRangeCalc = true;
+    	}
+
     	///////////////////////
     	// Left Mouse Button //
     	///////////////////////
@@ -57,17 +66,21 @@ public class mouseInput : MonoBehaviour
 				switch (state)
 				{
 					case 1:
-						spellHandle.castFireball(selection, hit.point);
+						if (!spellHandle.castFireball(selection, hit.point, targetingOrb.getRange()))
+							return;
 						break;
 					case 2:
-						spellHandle.castIcicle(selection, hit.point);
+						if (!spellHandle.castIcicle(selection, hit.point, targetingOrb.getRange()))
+							return;
 						break;
 					case 3:
-						spellHandle.castLightning(selection, hit.point);
+						if (!spellHandle.castLightning(selection, hit.point, targetingOrb.getRange()))
+							return;
 						break;
 				}
 				turn++; // Switch turns
 				clearUI(); // Clear the UI and selection field
+				targetingOrb.remove();
 
 				// Check if there are any minions to move
 				// if so, move them!
@@ -134,7 +147,10 @@ public class mouseInput : MonoBehaviour
 			return;
 		}
 
-		// Update path as agent moves
+		////////////////////////////////
+		// Update path as agent moves //
+		// Handle out-of-range moves  //
+		////////////////////////////////
 		if (selection != null)
 		{
 			// testCircle((float)selection.GetComponent<casterScript>().getRange() * 2.0f);
@@ -177,6 +193,7 @@ public class mouseInput : MonoBehaviour
 		state = 0;
 		handle.deleteUI();
 		debug.text = "Selection = none";
+		skipRangeCalc = false;
 		return;
     }
 }

@@ -81,19 +81,22 @@ public class UIHandler : MonoBehaviour
     void castFireball()
     {
 		inputCS.state = 1;
-		Instantiate(caster);
+		inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(8);
     }
 
     void castIcicle()
     {
         inputCS.state = 2;
-        Instantiate(caster);
+        inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(4);
     }
 
     void castLightning()
     {
         inputCS.state = 3;
-        Instantiate(caster);
+        inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(12);
     }
 
     void rollDice()

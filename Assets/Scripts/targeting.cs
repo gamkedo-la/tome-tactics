@@ -10,6 +10,7 @@ using UnityEngine;
 public class targeting : MonoBehaviour
 {
 	public Camera cam;
+    private int spellRange;
 
     void Start()
     {
@@ -22,9 +23,11 @@ public class targeting : MonoBehaviour
         
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
         	gameObject.transform.position = hit.point;
-
-
-        if (Input.GetKeyUp("mouse 0") || Input.GetKeyUp("mouse 1"))
-            Destroy(gameObject);
     }
+
+    public void setRange(int newRange) { spellRange = newRange; }
+
+    public int getRange() { return spellRange; }
+
+    public void remove() { Destroy(gameObject); }
 }
