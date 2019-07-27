@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class strike : MonoBehaviour
 {
-    void Start() { }
+    private ParticleSystem system;
 
-    void Update() { }
+    void Start() { system = GetComponent<ParticleSystem>(); }
+
+    void Update()
+    {
+        if (!system.IsAlive()) { Destroy(gameObject); }
+    }
 
     void OnCollisionEnter(Collision coll)
     {
