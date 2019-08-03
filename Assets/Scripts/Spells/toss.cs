@@ -13,6 +13,7 @@ public class toss : MonoBehaviour
 	private Vector3 destination, origin;
 	private SphereCollider hitBox;
 	private float time = 0.0f;
+    private GameObject caster = null;
 
 	[SerializeField] private Vector3 curve;
 
@@ -33,6 +34,8 @@ public class toss : MonoBehaviour
             print("desination height higher than positon");
         }
     }
+
+    public void setCaster(GameObject source) { caster = source; }
 
     public void setDestination(Vector3 newDest)
     {
@@ -68,15 +71,18 @@ public class toss : MonoBehaviour
     {
     	Debug.Log("OnCollisionEnter ran");
 
-    	if (coll.collider.tag != "Player")
+    	if (coll.collider.gameObject != caster)
     	{
-    		if (coll.collider.tag == "Opponent")
-    		{
-    			casterScript sucker = coll.gameObject.GetComponent<casterScript>();
-    			sucker.takeDamage(20);
-    		}
+			Debug.Log("Hit something...");
+			casterScript sucker = coll.gameObject.GetComponent<casterScript>();
+			if(sucker)
+			{
+				sucker.takeDamage(20);
+				Debug.Log("Hit ennemi caster! Damage taken!");
 
-    		Destroy(gameObject);
+			}
+			
+    		Destroy(gameObject, 2.0f); // This delay is because the animation is finished after this call.
     	}
     }
 }

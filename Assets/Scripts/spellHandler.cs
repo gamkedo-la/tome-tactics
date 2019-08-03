@@ -32,8 +32,11 @@ public class spellHandler : MonoBehaviour
 			selection.transform.position,
 			Quaternion.identity);
 
-		ball.GetComponent<toss>().setDestination(target);
-		return true;
+        var toss_ball = ball.GetComponent<toss>();
+        toss_ball.setDestination(target);
+        toss_ball.setCaster(selection);
+
+        return true;
     }
 
     public bool castIcicle(GameObject selection, Vector3 target, int range)
