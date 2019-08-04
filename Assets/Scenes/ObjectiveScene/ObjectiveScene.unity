@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 15
+    agentClimb: 0.2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock4
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5d1c78947c2504a9886d4b53603aa1ca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5d1c78947c2504a9886d4b53603aa1ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -349,7 +354,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5d1c78947c2504a9886d4b53603aa1ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.5934138
+      value: -4.65
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5d1c78947c2504a9886d4b53603aa1ca,
         type: 3}
@@ -446,6 +451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 300a1b723f1a54a8fbc3ebdb2f1f9980,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 300a1b723f1a54a8fbc3ebdb2f1f9980,
         type: 3}
@@ -2004,6 +2014,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 80fab64f095934c0eb0507e51823535e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 80fab64f095934c0eb0507e51823535e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2082,6 +2097,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 49ec1877e715c4dd69c868ac08b506d0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 49ec1877e715c4dd69c868ac08b506d0,
         type: 3}
@@ -2490,7 +2510,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2057791780
 Transform:
