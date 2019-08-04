@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
+	[SerializeField] private GameObject audioController;
+
 	[Header("Buttons")]
 	public Button create;
 	public Button sample;
@@ -22,6 +24,7 @@ public class mainMenu : MonoBehaviour
 
     void onCreateCaster()
     {
+    	DontDestroyOnLoad(audioController);
     	SceneManager.LoadScene("spellSelection");
     }
 

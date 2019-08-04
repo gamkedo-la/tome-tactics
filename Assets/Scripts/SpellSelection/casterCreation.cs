@@ -108,6 +108,8 @@ public class casterCreation : MonoBehaviour
 		// Prevent loss of Caster Spells object
 		DontDestroyOnLoad(casterSpells);
 
+		Destroy(GameObject.Find("Menu Audio"));
+
 		// Switch scenes
 		SceneManager.LoadScene("SampleScene");
 	}
