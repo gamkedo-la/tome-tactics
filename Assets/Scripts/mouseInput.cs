@@ -28,6 +28,8 @@ public class mouseInput : MonoBehaviour
 	private byte turn = 1;
 	private bool skipRangeCalc = false;
 	public targeting targetingOrb;
+	private RaycastHit hit;
+	MeshRenderer hoverIndicatorMesh;
 
     void Start() { }
 
@@ -39,6 +41,17 @@ public class mouseInput : MonoBehaviour
 			rangeCircle.GetComponent<moveRange>().showRange(true);
 			skipRangeCalc = true;
     	}
+		
+		bool isHit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit);
+		if (isHit && hit.collider.GetComponent<casterScript>() != null)
+		{			
+			hoverIndicatorMesh = hit.collider.GetComponentsInChildren<MeshRenderer>()[1];
+			hoverIndicatorMesh.enabled = true;
+		}
+		else if (hoverIndicatorMesh) 
+		{
+			hoverIndicatorMesh.enabled = false;
+		}
 
     	///////////////////////
     	// Left Mouse Button //
@@ -51,8 +64,7 @@ public class mouseInput : MonoBehaviour
 				print("UI click");
 				return; // Clicked on UI
 			}
-
-			RaycastHit hit;
+			
 			if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
 			{
 				clearUI(); // No contact
@@ -128,8 +140,7 @@ public class mouseInput : MonoBehaviour
 		// Right Mouse Button //
 		////////////////////////
 		if (Input.GetKeyUp("mouse 1"))
-		{
-			RaycastHit hit;
+		{			
 			if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
 				return; // No contact
 
