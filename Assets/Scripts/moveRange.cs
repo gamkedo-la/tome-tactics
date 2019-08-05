@@ -121,9 +121,12 @@ public class moveRange : MonoBehaviour
 
         circ.GetComponent<MeshFilter>().mesh = circle;
 
-        Vector3 newPos = selection.transform.position;
-        newPos.y = 0.1f;
-        circ.transform.position = newPos;
+        if (selection != null)
+        {
+            Vector3 newPos = selection.transform.position;
+            newPos.y = 0.1f;
+            circ.transform.position = newPos;
+        }
     }
 
 }

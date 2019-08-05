@@ -139,7 +139,7 @@ public class mouseInput : MonoBehaviour
 		////////////////////////
 		// Right Mouse Button //
 		////////////////////////
-		if (Input.GetKeyUp("mouse 1"))
+		if (Input.GetKeyUp("mouse 1") && state == 0)
 		{			
 			if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
 				return; // No contact
