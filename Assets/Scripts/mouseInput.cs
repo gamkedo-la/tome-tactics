@@ -89,6 +89,9 @@ public class mouseInput : MonoBehaviour
 						if (!spellHandle.castLightning(selection, hit.point, targetingOrb.getRange()))
 							return;
 						break;
+					case 13: // Cone of Flame
+						spellHandle.castConeOfFlame(selection, hit.point);
+						break;
 				}
 				turn++; // Switch turns
 				clearUI(); // Clear the UI and selection field
@@ -191,7 +194,7 @@ public class mouseInput : MonoBehaviour
 		}
 		else
 		{
-			clearUI();
+			// clearUI();
 			ShowPath.currPath = null;
 		}
     }
@@ -199,6 +202,7 @@ public class mouseInput : MonoBehaviour
     // Clear selection, state, and UI
     void clearUI()
     {
+    	print("UI cleared");
     	rangeCircle.GetComponent<moveRange>().showRange(false);
 		selection = null;
 		state = 0;

@@ -631,6 +631,8 @@ MonoBehaviour:
   icicle: {fileID: 4566784354383301010, guid: 230242de43d599c46a0ab26bc3800130, type: 3}
   lightning: {fileID: 459401243664375902, guid: 68acc0761169e544b89f8583e0b020e8,
     type: 3}
+  coneOfFlame: {fileID: 900724204118422163, guid: f4cdd1eb6b6a9eb44a5eee0f65cc080e,
+    type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

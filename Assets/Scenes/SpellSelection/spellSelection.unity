@@ -4661,7 +4661,7 @@ GameObject:
   - component: {fileID: 1661008386}
   - component: {fileID: 1661008385}
   m_Layer: 5
-  m_Name: Flame Cone
+  m_Name: Cone of Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6308,7 +6308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flame Cone
+  m_Text: Cone of Flame
 --- !u!222 &2098467432
 CanvasRenderer:
   m_ObjectHideFlags: 0

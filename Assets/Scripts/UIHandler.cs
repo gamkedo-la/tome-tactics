@@ -54,12 +54,15 @@ public class UIHandler : MonoBehaviour
             newButton.GetComponent<buttonMaker>().setColor(spell.getColor());
             newButton.GetComponent<buttonMaker>().setText(spell.getName());
 
+            // Make buttons
             if (spell.getName() == "Fireball")
                 newButton.GetComponentInChildren<Button>().onClick.AddListener(castFireball);
             else if (spell.getName() == "Icicle")
                 newButton.GetComponentInChildren<Button>().onClick.AddListener(castIcicle);
             else if (spell.getName() == "Lightning")
                 newButton.GetComponentInChildren<Button>().onClick.AddListener(castLightning);
+            else if (spell.getName() == "Cone of Flame")
+                newButton.GetComponentInChildren<Button>().onClick.AddListener(castConeOfFlame);
 
             newButton.transform.SetParent(UIpanel);
             newButton.transform.position = new Vector3(160.0f * numSpells, 0.0f, 0.0f);
@@ -99,6 +102,18 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb.setRange(12);
     }
 
+    void castConeOfFlame()
+    {
+        inputCS.state = 13;
+        inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(3);
+    }
+
+    ////////////////////////////////////////////////////////////////
+    //                                                            //
+    // Already in another script, it just needs to be implemented //
+    //                                                            //
+    //                                                            //
     void rollDice()
     {
     	Vector3 pos = new Vector3(5.0f, 7.5f, 5.0f);

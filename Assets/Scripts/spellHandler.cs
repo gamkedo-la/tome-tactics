@@ -13,6 +13,7 @@ public class spellHandler : MonoBehaviour
 	public GameObject fireball;
 	public GameObject icicle;
 	public GameObject lightning;
+	public GameObject coneOfFlame;
     
     void Start() { }
 
@@ -71,5 +72,17 @@ public class spellHandler : MonoBehaviour
 				(target + (new Vector3(0.0f, 10.0f, 0.0f))),
 				Quaternion.identity);
 		return true;
+    }
+
+    public void castConeOfFlame(GameObject selection, Vector3 target)
+    {
+    	selection.GetComponent<casterScript>().startCast();
+
+    	GameObject coneInst = Instantiate(coneOfFlame, selection.transform.position, Quaternion.identity);
+
+    	coneInst.transform.rotation = Quaternion.LookRotation(
+    									Vector3.RotateTowards(coneInst.transform.forward,
+    														target - coneInst.transform.position,
+    														3.0f, 0.0f));
     }
 }
