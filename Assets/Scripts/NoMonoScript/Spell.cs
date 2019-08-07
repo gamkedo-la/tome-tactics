@@ -6,25 +6,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Spell : System.Object
+[CreateAssetMenu(fileName = "MySpell", menuName = "ScriptableObjects/Spell", order = 1)]
+public class Spell : ScriptableObject
 {
-	// Member data
-	[SerializeField] private string spellName = "";
-	[SerializeField] private int damage = 0;
-	[SerializeField] private Color UIColor = Color.white;
-	[SerializeField] private int range = 0; // Raius from caster
+    // Member data
+    [SerializeField] private string spellName = "";
+    [SerializeField] private int damage = 0;
+    [SerializeField] private Color UIColor = Color.white;
+    [SerializeField] private int range = 0; // Raius from caster
+    [SerializeField] private Sprite UISprite;
 
-	// Setters
-	public void setName(string newName) { spellName = newName; }
-	public void setDamage(int newDamage) { damage = newDamage; }
-	public void setColor(Color newColor) { UIColor = newColor; }
-	public void setRange(int newRange) { range = newRange; }
+    // Setters
+    public void setName(string newName) { spellName = newName; }
+    public void setDamage(int newDamage) { damage = newDamage; }
+    public void setColor(Color newColor) { UIColor = newColor; }
+    public void setRange(int newRange) { range = newRange; }
+    public void setUISprite(Sprite newSprite) { UISprite = newSprite; }
 
-	// Getters
-	public string getName() { return spellName; }
-	public int getDamage() { return damage; }
-	public Color getColor() { return UIColor; }
-	public int getRange() { return range; }
+    // Getters
+    public string getName() { return spellName; }
+    public int getDamage() { return damage; }
+    public Color getColor() { return UIColor; }
+    public int getRange() { return range; }
+    public Sprite getUISprite() { return UISprite; }
 
 }

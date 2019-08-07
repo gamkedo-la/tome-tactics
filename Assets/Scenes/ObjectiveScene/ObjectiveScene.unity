@@ -734,6 +734,12 @@ PrefabInstance:
       propertyPath: animMove
       value: 
       objectReference: {fileID: 1253755598}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: aa0d558f58f9bcb49b5a53bcae28b1e6,
+        type: 2}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
@@ -1719,7 +1725,8 @@ PrefabInstance:
         type: 3}
       propertyPath: spellBook.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: b0da1fcbbb77b7e45a2b4a7ad5ef33d1,
+        type: 2}
     - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: spellBook.Array.data[0].spellName
@@ -1825,6 +1832,18 @@ PrefabInstance:
       propertyPath: animMove
       value: 
       objectReference: {fileID: 1253755598}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: aa0d558f58f9bcb49b5a53bcae28b1e6,
+        type: 2}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: spellBook.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: cb0f157ff9757164699b64dd4e1cdcd1,
+        type: 2}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
