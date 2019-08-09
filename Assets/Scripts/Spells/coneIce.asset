@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 378836079e73efe48a26736175dd9a81, type: 3}
-  m_Name: coneFire
+  m_Name: coneIce
   m_EditorClassIdentifier: 
-  spellName: Cone of Flame
-  damage: 15
-  UIColor: {r: 1, g: 0.5764706, b: 0, a: 1}
+  spellName: Cone of Frost
+  damage: 10
+  UIColor: {r: 0, g: 0.7294118, b: 1, a: 1}
   range: 10
   UISprite: {fileID: 0}
