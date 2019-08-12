@@ -16,6 +16,10 @@ public class mainMenu : MonoBehaviour
 	public Button create;
 	public Button sample;
 
+	[Header("Audio")]
+	public AudioSource source;
+	public AudioClip pageFlipping;
+
     void Start()
     {
         create.onClick.AddListener(onCreateCaster);
@@ -25,11 +29,13 @@ public class mainMenu : MonoBehaviour
     void onCreateCaster()
     {
     	DontDestroyOnLoad(audioController);
+    	source.PlayOneShot(pageFlipping);
     	SceneManager.LoadScene("spellSelection");
     }
 
     void onSample()
     {
+    	source.PlayOneShot(pageFlipping);
     	SceneManager.LoadScene("SampleScene");
     }
 }

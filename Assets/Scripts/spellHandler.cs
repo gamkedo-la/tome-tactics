@@ -14,6 +14,8 @@ public class spellHandler : MonoBehaviour
 	public GameObject icicle;
 	public GameObject lightning;
 	public GameObject coneOfFlame;
+	public GameObject coneOfFrost;
+	public GameObject coneOfShock;
     
     void Start() { }
 
@@ -79,6 +81,30 @@ public class spellHandler : MonoBehaviour
     	selection.GetComponent<casterScript>().startCast();
 
     	GameObject coneInst = Instantiate(coneOfFlame, selection.transform.position, Quaternion.identity);
+
+    	coneInst.transform.rotation = Quaternion.LookRotation(
+    									Vector3.RotateTowards(coneInst.transform.forward,
+    														target - coneInst.transform.position,
+    														3.0f, 0.0f));
+    }
+
+    public void castConeOfFrost(GameObject selection, Vector3 target)
+    {
+    	selection.GetComponent<casterScript>().startCast();
+
+    	GameObject coneInst = Instantiate(coneOfFrost, selection.transform.position, Quaternion.identity);
+
+    	coneInst.transform.rotation = Quaternion.LookRotation(
+    									Vector3.RotateTowards(coneInst.transform.forward,
+    														target - coneInst.transform.position,
+    														3.0f, 0.0f));
+    }
+
+    public void castConeOfShock(GameObject selection, Vector3 target)
+    {
+    	selection.GetComponent<casterScript>().startCast();
+
+    	GameObject coneInst = Instantiate(coneOfShock, selection.transform.position, Quaternion.identity);
 
     	coneInst.transform.rotation = Quaternion.LookRotation(
     									Vector3.RotateTowards(coneInst.transform.forward,

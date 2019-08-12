@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a715e8b200a8d3d45a8dd322f963b69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookClose: {fileID: 8300000, guid: 6ee0b2ad5930f0b4ab2a46a40afc1970, type: 3}
 --- !u!1 &255894667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shock Cone
+  m_Text: Cone of Shock
 --- !u!222 &351311271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1537,7 +1538,7 @@ GameObject:
   - component: {fileID: 393774024}
   - component: {fileID: 393774023}
   m_Layer: 5
-  m_Name: Shock Cone
+  m_Name: Cone of Shock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2025,6 +2026,8 @@ MonoBehaviour:
   spellDesc: {fileID: 1120889757}
   spellBonus: {fileID: 1271696931}
   player: {fileID: 160784533}
+  pageTurn: {fileID: 8300000, guid: e090c505772065e49a1369e945e36403, type: 3}
+  pageFlipping: {fileID: 8300000, guid: 2d05de99186d1c64390a76741587f8f8, type: 3}
 --- !u!4 &716768510
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,7 +2251,7 @@ GameObject:
   - component: {fileID: 906489385}
   - component: {fileID: 906489384}
   m_Layer: 5
-  m_Name: Frost Cone
+  m_Name: Cone of Frost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2561,7 +2564,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Frost Cone
+  m_Text: Cone of Frost
 --- !u!222 &1017907973
 CanvasRenderer:
   m_ObjectHideFlags: 0

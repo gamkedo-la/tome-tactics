@@ -48,7 +48,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4779,5 +4779,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8107441ddc73a6640bc3e78edfa63550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereMoveRate: 0.0625
-  sphereGrowRate: 2
+  sphereMoveRate: 0.125
+  sphereGrowRate: 0.5

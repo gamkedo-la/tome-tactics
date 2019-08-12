@@ -77,20 +77,26 @@ public class mouseInput : MonoBehaviour
 			{
 				switch (state)
 				{
-					case 1:
+					case 1: // Fireball
 						if (!spellHandle.castFireball(selection, hit.point, targetingOrb.getRange()))
 							return;
 						break;
-					case 2:
+					case 2: // Icicle
 						if (!spellHandle.castIcicle(selection, hit.point, targetingOrb.getRange()))
 							return;
 						break;
-					case 3:
+					case 3: // Lightning
 						if (!spellHandle.castLightning(selection, hit.point, targetingOrb.getRange()))
 							return;
 						break;
 					case 13: // Cone of Flame
 						spellHandle.castConeOfFlame(selection, hit.point);
+						break;
+					case 23: // Cone of Frost
+						spellHandle.castConeOfFrost(selection, hit.point);
+						break;
+					case 33: // Cone of Shock
+						spellHandle.castConeOfShock(selection, hit.point);
 						break;
 				}
 				turn++; // Switch turns

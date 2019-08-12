@@ -63,9 +63,14 @@ public class UIHandler : MonoBehaviour
                 newButton.GetComponentInChildren<Button>().onClick.AddListener(castLightning);
             else if (spell.getName() == "Cone of Flame")
                 newButton.GetComponentInChildren<Button>().onClick.AddListener(castConeOfFlame);
+            else if (spell.getName() == "Cone of Frost")
+                newButton.GetComponentInChildren<Button>().onClick.AddListener(castConeOfFrost);
+            else if (spell.getName() == "Cone of Shock")
+                newButton.GetComponentInChildren<Button>().onClick.AddListener(castConeOfShock);
 
             newButton.transform.SetParent(UIpanel);
             newButton.transform.position = new Vector3(160.0f * numSpells, 0.0f, 0.0f);
+            newButton.transform.localScale = new Vector3(1.0f, 1.0f, 0.0f);
 
             buttons[numSpells] = newButton;
             numSpells += 1;
@@ -105,6 +110,20 @@ public class UIHandler : MonoBehaviour
     void castConeOfFlame()
     {
         inputCS.state = 13;
+        inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(3);
+    }
+
+    void castConeOfFrost()
+    {
+        inputCS.state = 23;
+        inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
+        inputCS.targetingOrb.setRange(3);
+    }
+
+    void castConeOfShock()
+    {
+        inputCS.state = 33;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
     }

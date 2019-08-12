@@ -23,8 +23,17 @@ public class casterCreation : MonoBehaviour
 	private schoolHandler handle;
 	public schoolHandler player;
 
+	private AudioSource audioSource;
+	[Header("SFX")]
+	public AudioClip pageTurn;
+	public AudioClip pageFlipping;
+
     void Start()
     {
+    	GameObject audioObject = GameObject.Find("Master Audio");
+    	if (audioObject)
+			audioSource = audioObject.GetComponent<AudioSource>();    	
+
 		switchTab(0);
     }
 
@@ -32,6 +41,9 @@ public class casterCreation : MonoBehaviour
 
     void switchTab(int tabNum)
     {
+    	if (audioSource)
+	    	audioSource.PlayOneShot(pageTurn);
+
     	// If same tab is clicked, ignore
     	if (activeCanvas == spellCanvas[tabNum])
     		return;
@@ -108,7 +120,10 @@ public class casterCreation : MonoBehaviour
 		// Prevent loss of Caster Spells object
 		DontDestroyOnLoad(casterSpells);
 
-		Destroy(GameObject.Find("Menu Audio"));
+		Destroy(GameObject.Find("Master Audio"));
+
+    	if (audioSource)
+			audioSource.PlayOneShot(pageFlipping);
 
 		// Switch scenes
 		SceneManager.LoadScene("SampleScene");
