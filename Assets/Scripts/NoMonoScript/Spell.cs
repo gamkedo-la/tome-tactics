@@ -15,6 +15,9 @@ public class Spell : ScriptableObject
     [SerializeField] private Color UIColor = Color.white;
     [SerializeField] private int range = 0; // Raius from caster
     [SerializeField] private Sprite UISprite;
+    [SerializeField] private int power = 0;
+    [SerializeField] private int accuracy = 0;
+    [SerializeField] private string effect = ""; // unsure if string is best to use
 
     // Setters
     public void setName(string newName) { spellName = newName; }

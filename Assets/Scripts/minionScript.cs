@@ -11,7 +11,7 @@ public class minionScript : MonoBehaviour
 {
 	[SerializeField] private GameObject target;
     private NavMeshAgent agent;
-    private float distStart = 0.0f, distLeft = 0.0f;
+    private bool stopAdjustAllowed = false;
 
     void Start()
     {
@@ -21,27 +21,45 @@ public class minionScript : MonoBehaviour
 
     void Update()
     {
-    	if (distStart == 0.0f)
+    	if (agent.remainingDistance != Mathf.Infinity && agent.remainingDistance > 0f)
     	{
-    		distStart = agent.remainingDistance;
-    		return;
+            if (stopAdjustAllowed)
+            {
+                agent.stoppingDistance = agent.remainingDistance - 3.0f;
+                agent.speed = 3.5f;
+                print(agent.stoppingDistance);
+                stopAdjustAllowed = false;
+            }
+            return;
     	}
-    	else
-	    	distLeft = distStart - agent.remainingDistance;
-
-        if (distLeft > 3.0f)
+        else
         {
-        	agent.speed = 0.0f;
-        	distStart = 0.0f;
+            float distance = 0.0f;
+            Vector3[] corners = agent.path.corners;
+            for (int c = 0; c < corners.Length - 1; ++c)
+            {
+                distance += Mathf.Abs((corners[c] - corners[c + 1]).magnitude);
+            }
+
+            if (stopAdjustAllowed)
+            {
+                print(gameObject + " distance: " + distance);
+                agent.stoppingDistance = distance - 3.0f;
+                agent.speed = 3.5f;
+                print(agent.stoppingDistance + " from Infinity");
+                stopAdjustAllowed = false;
+            }
+            else if (distance <= agent.stoppingDistance)
+            {
+                agent.destination = transform.position;
+            }
         }
     }
 
     public void moveMinion()
     {
-    	agent.destination = target.transform.position;
+    	agent.destination = target.transform.position;;
 
-    	distStart = agent.remainingDistance;
-
-    	agent.speed = 3.5f;
+        stopAdjustAllowed = true;
     }
 }

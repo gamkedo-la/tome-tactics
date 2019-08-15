@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RollHandler : MonoBehaviour
 {
-	[SerializeField] private GameObject die = new GameObject();
+	[SerializeField] private GameObject die;
 	private GameObject dieInst;
 	private Rigidbody rig;
 
@@ -57,5 +57,6 @@ public class RollHandler : MonoBehaviour
 			diceCount = 2; // 1
 
 		Debug.Log ("diceCount :" + diceCount);
+        Destroy(dieInst);
     }
 }

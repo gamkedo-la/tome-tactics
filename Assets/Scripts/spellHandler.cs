@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class spellHandler : MonoBehaviour
 {
+    [SerializeField] private RollHandler roller;
+
 	[Header("Spells")]
 	public GameObject fireball;
 	public GameObject icicle;
