@@ -19,12 +19,16 @@ public class spellHandler : MonoBehaviour
 	public GameObject coneOfFrost;
 	public GameObject coneOfShock;
     
+    private Spell currentSpell;
+
     void Start() { }
 
     void Update() { }
 
     public bool castFireball(GameObject selection, Vector3 target, int range)
     {
+        roller.rollDice(6);
+
 		if (Vector3.Distance(target, selection.transform.position) > range)
 		{
 			print("Out of range Spell");

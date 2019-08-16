@@ -17,3 +17,6 @@ MonoBehaviour:
   UIColor: {r: 1, g: 0.5764706, b: 0, a: 1}
   range: 10
   UISprite: {fileID: 0}
+  power: 5
+  accuracy: 4
+  effect: Burning

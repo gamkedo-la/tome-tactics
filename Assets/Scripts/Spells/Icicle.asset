@@ -17,3 +17,6 @@ MonoBehaviour:
   UIColor: {r: 0, g: 0.7294118, b: 1, a: 1}
   range: 5
   UISprite: {fileID: 0}
+  power: 0
+  accuracy: 0
+  effect: Slow

@@ -38,8 +38,12 @@ public class minionScript : MonoBehaviour
             Vector3[] corners = agent.path.corners;
             for (int c = 0; c < corners.Length - 1; ++c)
             {
+                // print(corners[c]);
                 distance += Mathf.Abs((corners[c] - corners[c + 1]).magnitude);
             }
+
+            if (distance == 0)
+                return;
 
             if (stopAdjustAllowed)
             {

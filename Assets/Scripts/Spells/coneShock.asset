@@ -17,3 +17,6 @@ MonoBehaviour:
   UIColor: {r: 0.8980392, g: 0.8784314, b: 0, a: 1}
   range: 10
   UISprite: {fileID: 0}
+  power: 3
+  accuracy: 2
+  effect: DoubleCast

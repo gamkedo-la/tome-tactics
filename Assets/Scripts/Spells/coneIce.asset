@@ -17,3 +17,6 @@ MonoBehaviour:
   UIColor: {r: 0, g: 0.7294118, b: 1, a: 1}
   range: 10
   UISprite: {fileID: 0}
+  power: 4
+  accuracy: 3
+  effect: Freeze
