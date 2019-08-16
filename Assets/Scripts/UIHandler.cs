@@ -75,43 +75,67 @@ public class UIHandler : MonoBehaviour
 
     void castFireball()
     {
+        if (inputCS.SpellSelected)
+            return;
+
 		inputCS.state = 1;
 		inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(8);
+        inputCS.SpellSelected = true;
     }
 
     void castIcicle()
     {
+        if (inputCS.SpellSelected)
+            return;
+
         inputCS.state = 2;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(4);
+        inputCS.SpellSelected = true;
     }
 
     void castLightning()
     {
+        if (inputCS.SpellSelected)
+            return;
+
         inputCS.state = 3;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(12);
+        inputCS.SpellSelected = true;
     }
 
     void castConeOfFlame()
     {
+        if (inputCS.SpellSelected)
+            return;
+
         inputCS.state = 13;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
+        inputCS.SpellSelected = true;
     }
 
     void castConeOfFrost()
     {
+        if (inputCS.SpellSelected)
+            return;
+
         inputCS.state = 23;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
+        inputCS.SpellSelected = true;
     }
 
     void castConeOfShock()
     {
+        if (inputCS.SpellSelected)
+            return;
+
         inputCS.state = 33;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
+        inputCS.SpellSelected = true;
     }
 }

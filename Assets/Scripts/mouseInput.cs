@@ -27,15 +27,17 @@ public class mouseInput : MonoBehaviour
 
 	private byte turn = 1;
 	private bool skipRangeCalc = false;
-	public targeting targetingOrb;
+    public targeting targetingOrb;
 	private RaycastHit hit;
 	MeshRenderer hoverIndicatorMesh;
+
+    public bool SpellSelected { get; set; }
 
     void Start() { }
 
     void Update()
     {
-    	if (state > 0 && !skipRangeCalc)
+        if (state > 0 && !skipRangeCalc)
     	{
 			rangeCircle.GetComponent<moveRange>().spellRange(selection, targetingOrb.getRange());
 			rangeCircle.GetComponent<moveRange>().showRange(true);
@@ -102,6 +104,7 @@ public class mouseInput : MonoBehaviour
 				turn++; // Switch turns
 				clearUI(); // Clear the UI and selection field
 				targetingOrb.remove();
+                SpellSelected = false;
 
 				// Check if there are any minions to move
 				// if so, move them!
@@ -136,6 +139,7 @@ public class mouseInput : MonoBehaviour
 
 
 			// If method hasn't returned yet, probably hit a Caster
+
 			selection = hit.collider.gameObject;
 			debug.text = "Selection = " + selection;
 			handle.makeUI(selection.GetComponent<casterScript>().getSpells());
@@ -145,7 +149,7 @@ public class mouseInput : MonoBehaviour
 
 			rangeCircle.GetComponent<moveRange>().showRange(true);
 
-			return;
+            return;
 		}
 
 		////////////////////////
