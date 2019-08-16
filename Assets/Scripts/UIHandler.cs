@@ -76,7 +76,7 @@ public class UIHandler : MonoBehaviour
     void castFireball()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
 		inputCS.state = 1;
 		inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
@@ -87,7 +87,7 @@ public class UIHandler : MonoBehaviour
     void castIcicle()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
         inputCS.state = 2;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
@@ -98,7 +98,7 @@ public class UIHandler : MonoBehaviour
     void castLightning()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
         inputCS.state = 3;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
@@ -109,7 +109,7 @@ public class UIHandler : MonoBehaviour
     void castConeOfFlame()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
         inputCS.state = 13;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
@@ -120,7 +120,7 @@ public class UIHandler : MonoBehaviour
     void castConeOfFrost()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
         inputCS.state = 23;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
@@ -131,7 +131,7 @@ public class UIHandler : MonoBehaviour
     void castConeOfShock()
     {
         if (inputCS.SpellSelected)
-            return;
+            inputCS.targetingOrb.remove();
 
         inputCS.state = 33;
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
