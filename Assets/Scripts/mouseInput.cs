@@ -115,9 +115,10 @@ public class mouseInput : MonoBehaviour
 
 			// Debug.Log("Contact made");
 
-			if (hit.collider.gameObject.tag != "Player")
-			{
-				clearUI(); // Ignore non-Player objects
+			if (hit.collider.gameObject.tag != "Player" ||
+                hit.collider.gameObject.tag != "Player2")
+            {
+                clearUI(); // Ignore non-Player objects
 			}
 
 			///////////////////////////////////////////////////////////////
