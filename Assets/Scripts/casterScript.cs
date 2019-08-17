@@ -37,7 +37,11 @@ public class casterScript : MonoBehaviour
             stopMove();
     }
 
-    public void takeDamage(int damage) { hp -= damage; }
+    public void takeDamage(int damage)
+    {
+        print("Damage: " + damage);
+        hp -= damage;
+    }
 
     public Spell[] getSpells() { return spellBook; }
 

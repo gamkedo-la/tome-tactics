@@ -10,28 +10,45 @@ using UnityEngine;
 
 public class toss : MonoBehaviour
 {
+    private RollHandler roller;
 	private Vector3 destination, origin;
 	private SphereCollider hitBox;
 	private float time = 0.0f;
     private GameObject caster = null;
+    private casterScript enemy = null;
+    private bool moving = true;
 
 	[SerializeField] private Vector3 curve;
 
     void Start()
     {
+        GameObject input = GameObject.Find("Input and Game Logic");
+        roller = input.GetComponent<RollHandler>();
+
         origin = transform.position + new Vector3(0.0f, 2.0f, 0.0f);
         hitBox = GetComponent<SphereCollider>();
     }
 
     void Update()
     {
-        transform.position = quadCurve(time);
-        time += Time.deltaTime * 1.5f;
-
-    	if (destination.y > transform.position.y)
+        if (moving)
         {
-    		Destroy(gameObject);
-            print("desination height higher than positon");
+            transform.position = quadCurve(time);
+            time += Time.deltaTime * 1.5f;
+
+        	if (destination.y > transform.position.y + 10)
+            {
+        		Destroy(gameObject);
+                print("desination height higher than positon");
+            }
+        }
+
+        int dam = roller.isDone();
+        if (dam != 0)
+        {
+            enemy.takeDamage(dam);
+            roller.Reset();
+            Destroy(gameObject, 2.0f); // This delay is because the animation is finished after this call.
         }
     }
 
@@ -74,15 +91,14 @@ public class toss : MonoBehaviour
     	if (coll.collider.gameObject != caster)
     	{
 			Debug.Log("Hit something...");
-			casterScript sucker = coll.gameObject.GetComponent<casterScript>();
-			if(sucker)
+			enemy = coll.gameObject.GetComponent<casterScript>();
+			if(enemy)
 			{
-				sucker.takeDamage(20);
-				Debug.Log("Hit ennemi caster! Damage taken!");
-
+                moving = false;
+                transform.position = new Vector3(0.0f, 100.0f, 0.0f);
+                roller.rollDice(6);
+				Debug.Log("Hit enemy caster! Damage taken!");
 			}
-			
-    		Destroy(gameObject, 2.0f); // This delay is because the animation is finished after this call.
     	}
     }
 }

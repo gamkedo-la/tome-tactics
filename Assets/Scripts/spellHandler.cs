@@ -9,8 +9,6 @@ using UnityEngine;
 
 public class spellHandler : MonoBehaviour
 {
-    [SerializeField] private RollHandler roller;
-
 	[Header("Spells")]
 	public GameObject fireball;
 	public GameObject icicle;
@@ -18,8 +16,6 @@ public class spellHandler : MonoBehaviour
 	public GameObject coneOfFlame;
 	public GameObject coneOfFrost;
 	public GameObject coneOfShock;
-    
-    private Spell currentSpell;
 
     void Start() { }
 
@@ -27,8 +23,6 @@ public class spellHandler : MonoBehaviour
 
     public bool castFireball(GameObject selection, Vector3 target, int range)
     {
-        roller.rollDice(6);
-
 		if (Vector3.Distance(target, selection.transform.position) > range)
 		{
 			print("Out of range Spell");
