@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class drop : MonoBehaviour
 {
-    bool slide = false, stop = false;
-    int stopCount = 30;
+    private RollHandler roller;
+    private casterScript enemy = null;
+    private bool slide = false, stop = false;
+    private int stopCount = 30;
 
-    void Start() { }
+    void Start()
+    {
+        GameObject input = GameObject.Find("Input and Game Logic");
+        roller = input.GetComponent<RollHandler>();
+    }
 
     // Manage changes in speed of icicle
     void Update()
     {
+        int dam = roller.isDone();
+        if (dam != 0)
+        {
+            enemy.takeDamage(dam);
+            roller.Reset();
+            Destroy(gameObject);
+        }
+
         if (slide && !stop)
         {
             gameObject.transform.position -= new Vector3(0.0f, 0.3f, 0.0f);
@@ -32,28 +46,26 @@ public class drop : MonoBehaviour
         else
             gameObject.transform.position -= new Vector3(0.0f, 0.3f, 0.0f);
 
-        if (gameObject.transform.position.y < -2)
+        if (gameObject.transform.position.y < -2 && enemy == null)
             Destroy(gameObject);
     }
 
     void OnCollisionEnter(Collision coll)
     {
-        // Debug.Log("OnEnter ran");
+        Debug.Log("OnEnter ran");
 
         if (slide || stop)
             return;
 
-    	if (coll.collider.tag != "Player")
-    	{
-    		if (coll.collider.tag == "Opponent")
-    		{
-                coll.gameObject.GetComponent<casterScript>().takeDamage(20);
-                
-                Rigidbody rig = gameObject.GetComponent<Rigidbody>();
-                rig.isKinematic = true;
+        Rigidbody rig = gameObject.GetComponent<Rigidbody>();
+        rig.isKinematic = true;
 
-                slide = true;
-    		}
-    	}
+		if (coll.collider.tag == "Player2" || coll.collider.tag == "Player")
+		{
+            enemy = coll.gameObject.GetComponent<casterScript>();
+            roller.rollDice(3);
+		}
+
+        slide = true;
     }
 }
