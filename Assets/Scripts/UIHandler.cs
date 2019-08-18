@@ -82,6 +82,7 @@ public class UIHandler : MonoBehaviour
 		inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(8);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 
     void castIcicle()
@@ -93,6 +94,7 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(4);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 
     void castLightning()
@@ -104,6 +106,7 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(12);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 
     void castConeOfFlame()
@@ -115,6 +118,7 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 
     void castConeOfFrost()
@@ -126,6 +130,7 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 
     void castConeOfShock()
@@ -137,5 +142,6 @@ public class UIHandler : MonoBehaviour
         inputCS.targetingOrb = Instantiate(caster).GetComponent<targeting>();
         inputCS.targetingOrb.setRange(3);
         inputCS.SpellSelected = true;
+        inputCS.skipRangeCalc = false;
     }
 }

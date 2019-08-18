@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 27579b458fc28c149a6cdef85d14b57e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -506,6 +506,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.336
       objectReference: {fileID: 0}
+    - target: {fileID: 2438075812147459433, guid: bc5109e37a8527e4db97f8a83b013189,
+        type: 3}
+      propertyPath: m_Name
+      value: Magic Particles
+      objectReference: {fileID: 0}
     - target: {fileID: 1837731049250457424, guid: bc5109e37a8527e4db97f8a83b013189,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -525,11 +530,6 @@ PrefabInstance:
         type: 3}
       propertyPath: prewarm
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2438075812147459433, guid: bc5109e37a8527e4db97f8a83b013189,
-        type: 3}
-      propertyPath: m_Name
-      value: Magic Particles
       objectReference: {fileID: 0}
     - target: {fileID: 3638027719367183348, guid: bc5109e37a8527e4db97f8a83b013189,
         type: 3}

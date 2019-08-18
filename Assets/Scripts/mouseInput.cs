@@ -26,7 +26,7 @@ public class mouseInput : MonoBehaviour
 	[SerializeField] private spellHandler spellHandle;
 
 	private byte turn = 1;
-	private bool skipRangeCalc = false;
+	public bool skipRangeCalc = false;
     public targeting targetingOrb;
 	private RaycastHit hit;
 	MeshRenderer hoverIndicatorMesh;
