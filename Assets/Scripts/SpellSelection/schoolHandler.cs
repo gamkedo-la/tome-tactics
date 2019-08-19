@@ -55,7 +55,7 @@ public class schoolHandler : MonoBehaviour
 	{
 		if (spell_1 == "")
 		{
-			Transform t = transform.Find("Spell List Canvas/Spells/Spell First/Text");
+			Transform t = transform.Find("Spell First/Text");
 			Text tex = t.gameObject.GetComponent<Text>();
 			tex.text = name;
 
@@ -63,7 +63,7 @@ public class schoolHandler : MonoBehaviour
 		}
 		else if (spell_2 == "")
 		{
-			Transform t = transform.Find("Spell List Canvas/Spells/Spell Second/Text");
+			Transform t = transform.Find("Spell Second/Text");
 			Text tex = t.gameObject.GetComponent<Text>();
 			tex.text = name;
 
@@ -118,14 +118,14 @@ public class schoolHandler : MonoBehaviour
 		string[] spells = new string[size];
 
 		// First Spell
-		Transform t = transform.Find("Spell List Canvas/Spells/Spell First/Text");
+		Transform t = transform.Find("Spell First/Text");
 		Text tex = t.gameObject.GetComponent<Text>();
 		spells[0] = tex.text;
 
 		// Second Spell
 		if (size > 1)
 		{
-			t = transform.Find("Spell List Canvas/Spells/Spell Second/Text");
+			t = transform.Find("Spell Second/Text");
 			tex = t.gameObject.GetComponent<Text>();
 			spells[1] = tex.text;
 		}
