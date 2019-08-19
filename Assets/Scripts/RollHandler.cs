@@ -85,17 +85,17 @@ public class RollHandler : MonoBehaviour
     	// Debug.Log(Vector3.Dot (die.transform.right, Vector3.up));
 
     	if (Vector3.Dot (die.transform.forward, Vector3.up) > 0.9)
-    		diceCount = 4; // 5
+    		diceCount = 6;
     	else if (Vector3.Dot (-die.transform.forward, Vector3.up) > 0.9)
-    		diceCount = 5; // 2
+    		diceCount = 1;
     	else if (Vector3.Dot (die.transform.up, Vector3.up) > 0.9)
-    		diceCount = 3; // 3
+    		diceCount = 3;
     	else if (Vector3.Dot (-die.transform.up, Vector3.up) > 0.9)
-    		diceCount = 1; // 4
+    		diceCount = 4;
     	else if (Vector3.Dot (die.transform.right, Vector3.up) > 0.9)
-    		diceCount = 6; // 6
+    		diceCount = 2;
     	else if (Vector3.Dot (-die.transform.right, Vector3.up) > 0.9)
-    		diceCount = 2; // 1
+    		diceCount = 5;
         else
             return false;
 
