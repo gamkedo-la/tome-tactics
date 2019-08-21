@@ -76,10 +76,11 @@ public class schoolHandler : MonoBehaviour
 	}
 
 	public void clearSpell(string name, string description)
-	{
-		if (spell_1 == description)
+    {
+        if (spell_1 == description)
 		{
-			Transform t = transform.Find("Spell List Canvas/Spells/Spell First/Text");
+			Transform t = transform.Find("Spell First/Text");
+            print(t);
 			Text tex = t.gameObject.GetComponent<Text>();
 			tex.text = "Empty!";
 
@@ -87,7 +88,7 @@ public class schoolHandler : MonoBehaviour
 		}
 		else if (spell_2 == description)
 		{
-			Transform t = transform.Find("Spell List Canvas/Spells/Spell Second/Text");
+			Transform t = transform.Find("Spell Second/Text");
 			Text tex = t.gameObject.GetComponent<Text>();
 			tex.text = "Empty!";
 
@@ -101,7 +102,8 @@ public class schoolHandler : MonoBehaviour
 
 	public bool isEmpty()
 	{
-		if (spell_1 == "" && spell_2 == "")
+		if (spell_1 == "" || 
+            spell_1 == "" && spell_2 == "")
 			return true;
 		else
 			return false;
