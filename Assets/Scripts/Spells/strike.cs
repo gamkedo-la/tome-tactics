@@ -5,6 +5,7 @@ using UnityEngine;
 public class strike : MonoBehaviour
 {
     private RollHandler roller;
+    private mouseInput gameLogic;
     private ParticleSystem system;
     private casterScript enemy = null;
 
@@ -14,12 +15,15 @@ public class strike : MonoBehaviour
 
         GameObject input = GameObject.Find("Input and Game Logic");
         roller = input.GetComponent<RollHandler>();
+        gameLogic = input.GetComponent<mouseInput>();
+        gameLogic.setIsCasting(true);
     }
 
     void Update()
     {
         if (!system.IsAlive() && enemy == null)
         {
+            gameLogic.setIsCasting(false);
             Destroy(gameObject); 
         }
         else
@@ -29,6 +33,7 @@ public class strike : MonoBehaviour
             {
                 enemy.takeDamage(dam);
                 roller.Reset();
+                gameLogic.setIsCasting(false);
                 Destroy(gameObject);
             }
         }

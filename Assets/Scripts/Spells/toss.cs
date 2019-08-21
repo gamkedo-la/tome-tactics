@@ -11,6 +11,7 @@ using UnityEngine;
 public class toss : MonoBehaviour
 {
     private RollHandler roller;
+    private mouseInput gameLogic;
 	private Vector3 destination, origin;
 	private SphereCollider hitBox;
 	private float time = 0.0f;
@@ -24,6 +25,8 @@ public class toss : MonoBehaviour
     {
         GameObject input = GameObject.Find("Input and Game Logic");
         roller = input.GetComponent<RollHandler>();
+        gameLogic = input.GetComponent<mouseInput>();
+        gameLogic.setIsCasting(true);
 
         origin = transform.position + new Vector3(0.0f, 2.0f, 0.0f);
         hitBox = GetComponent<SphereCollider>();
@@ -38,6 +41,7 @@ public class toss : MonoBehaviour
 
         	if (destination.y > transform.position.y + 10)
             {
+                gameLogic.setIsCasting(false);
         		Destroy(gameObject);
                 print("desination height higher than positon");
             }
@@ -48,6 +52,7 @@ public class toss : MonoBehaviour
         {
             enemy.takeDamage(dam);
             roller.Reset();
+            gameLogic.setIsCasting(false);
             Destroy(gameObject, 2.0f); // This delay is because the animation is finished after this call.
         }
     }

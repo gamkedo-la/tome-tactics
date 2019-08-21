@@ -19,13 +19,9 @@ public class UIHandler : MonoBehaviour
 
     private GameObject[] buttons;
 
-    void Start()
-    {
-    }
+    void Start() { }
 
-    void Update()
-    {
-    }
+    void Update() { }
 
     // Takes the Spellbook of a Caster and creates
     // buttons for the spells

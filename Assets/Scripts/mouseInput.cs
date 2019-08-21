@@ -33,10 +33,16 @@ public class mouseInput : MonoBehaviour
 
     public bool SpellSelected { get; set; }
 
+	// state checks so inputs are ignored when spells are casting
+	// or when minions are moving
+    private bool isCasting = false;
+    private bool isMovingMinions = false;
+
     void Start() { }
 
     void Update()
     {
+    	// Prevent range calculation from happening more than once after a spell is selected
         if (state > 0 && !skipRangeCalc)
     	{
 			rangeCircle.GetComponent<moveRange>().spellRange(selection, targetingOrb.getRange());
@@ -44,6 +50,7 @@ public class mouseInput : MonoBehaviour
 			skipRangeCalc = true;
     	}
 		
+		// Highlight hovered object
 		bool isHit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit);
 		if (isHit && hit.collider.GetComponent<casterScript>() != null)
 		{			
@@ -66,6 +73,12 @@ public class mouseInput : MonoBehaviour
 				print("UI click");
 				return; // Clicked on UI
 			}
+
+			// If spell is still active,
+			// or if minions are being moved,
+			// ignore input
+			if (isCasting || isMovingMinions)
+				return;
 			
 			if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit))
 			{
@@ -224,4 +237,9 @@ public class mouseInput : MonoBehaviour
 		skipRangeCalc = false;
 		return;
     }
+
+    // Set extra states
+    public void setIsCasting(bool state) { isCasting = state; }
+
+    public void setIsMovingMinions(bool state) { isMovingMinions = state; }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class drop : MonoBehaviour
 {
     private RollHandler roller;
+    private mouseInput gameLogic;
     private casterScript enemy = null;
     private bool slide = false, stop = false;
     private int stopCount = 30;
@@ -13,6 +14,8 @@ public class drop : MonoBehaviour
     {
         GameObject input = GameObject.Find("Input and Game Logic");
         roller = input.GetComponent<RollHandler>();
+        gameLogic = input.GetComponent<mouseInput>();
+        gameLogic.setIsCasting(true);
     }
 
     // Manage changes in speed of icicle
@@ -23,6 +26,7 @@ public class drop : MonoBehaviour
         {
             enemy.takeDamage(dam);
             roller.Reset();
+            gameLogic.setIsCasting(false);
             Destroy(gameObject);
         }
 
@@ -47,7 +51,10 @@ public class drop : MonoBehaviour
             gameObject.transform.position -= new Vector3(0.0f, 0.3f, 0.0f);
 
         if (gameObject.transform.position.y < -2 && enemy == null)
+        {
+            gameLogic.setIsCasting(false);
             Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter(Collision coll)
