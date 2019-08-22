@@ -9,6 +9,7 @@ using UnityEngine.AI;
 
 public class minionScript : MonoBehaviour
 {
+    [SerializeField] private Animator moveAnimator;
 	[SerializeField] private GameObject target;
     private NavMeshAgent agent;
     private bool stopAdjustAllowed = false;

@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 3654743844205030025}
   - component: {fileID: 5987328538815992188}
   - component: {fileID: 5987328538815992189}
+  - component: {fileID: -7894853922290154707}
   m_Layer: 0
-  m_Name: Cone of Flame 1
+  m_Name: Cone of Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4781,3 +4782,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereMoveRate: 0.0625
   sphereGrowRate: 2
+--- !u!54 &-7894853922290154707
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900724204118422163}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1163941379876156443}
   - component: {fileID: 8180831846496997358}
   - component: {fileID: 8180831846496997359}
+  - component: {fileID: 6409083256476445358}
   m_Layer: 0
   m_Name: Cone of Frost
   m_TagString: Untagged
@@ -4781,3 +4782,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereMoveRate: 0.0625
   sphereGrowRate: 2
+--- !u!54 &6409083256476445358
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323488614177090561}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
