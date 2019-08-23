@@ -40,6 +40,9 @@ public class mouseInput : MonoBehaviour
     private bool isCasting = false;
     private bool isMovingMinions = false;
 
+    public int scoreRed = 0, scoreBlue = 0;
+    [SerializeField] private Text textRed, textBlue;
+
     void Start() { }
 
     void Update()
@@ -149,12 +152,33 @@ public class mouseInput : MonoBehaviour
 
 				listMinions = minionListDuplicate;
 
-				// Check if there are any minions to move
-				// if so, move them!
+				//////////////////
+				// Move Minions //
+				//////////////////
 				if (listMinions == null || listMinions.Length == 0 || listMinions[0])
 					foreach (minionScript minion in listMinions)
 						if (minion != null)
+						{
+							/////////////////
+							// Check score //
+							/////////////////
+							for (int i = 0; i < Objectives.Length; ++i)
+							{
+								float distance = Vector3.Distance(Objectives[i].transform.position, minion.getPos());
+								if (distance < 7f)
+								{
+									if (minion.getOwner() % 2 != 0)
+										scoreRed += 2;
+									else
+										scoreBlue += 2;
+
+									updateScore();
+								}
+
+							}
+
 							minion.moveMinion();
+						}
 
 				return;
 			}
@@ -206,6 +230,7 @@ public class mouseInput : MonoBehaviour
 			}
 
 			// If method hasn't returned yet, probably hit a Caster
+			clearUI();
 
 			selection = hit.collider.gameObject;
 			debug.text = "Selection = " + selection;
@@ -237,6 +262,9 @@ public class mouseInput : MonoBehaviour
 					if (hit.collider.gameObject.tag == "Objective")
 					{
 						selection.GetComponent<minionScript>().setTarget(hit.collider.gameObject);
+						
+						ShowPath.currPath = new Vector3[2]{ selection.transform.position,
+									selection.GetComponent<minionScript>().getTargetPos() };
 					}
 					return;
 				}
@@ -299,6 +327,12 @@ public class mouseInput : MonoBehaviour
 		debug.text = "Selection = none";
 		skipRangeCalc = false;
 		return;
+    }
+
+    void updateScore()
+    {
+    	textBlue.text = "Blue: " + scoreBlue;
+    	textRed.text = "Red: " + scoreRed;
     }
 
     // Set extra states

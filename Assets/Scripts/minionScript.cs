@@ -77,6 +77,8 @@ public class minionScript : MonoBehaviour
             ownerCaster = 2;
     }
 
+    public int getOwner() { return ownerCaster; }
+
     public void setTarget(GameObject newTarget)
     {
         target = newTarget;
@@ -85,5 +87,10 @@ public class minionScript : MonoBehaviour
     public Vector3 getTargetPos()
     {
         return target.transform.position;
+    }
+
+    public Vector3 getPos()
+    {
+        return transform.position;
     }
 }
