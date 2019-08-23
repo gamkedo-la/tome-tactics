@@ -24,6 +24,8 @@ public class mouseInput : MonoBehaviour
 	[SerializeField] private GameObject rangeCircle;
 	[SerializeField] private minionScript[] listMinions;
 	[SerializeField] private spellHandler spellHandle;
+	[SerializeField] private GameObject minionPrefab;
+	[SerializeField] private GameObject[] Objectives;
 
 	private byte turn = 1;
 	public bool skipRangeCalc = false;
@@ -126,8 +128,38 @@ public class mouseInput : MonoBehaviour
 						if (minion != null)
 							minion.moveMinion();
 
+				// Add minion to board
+				minionScript[] minionListDuplicate = new minionScript[listMinions.Length + 1];
+
+				for (int i = 0; i < listMinions.Length; ++i)
+					minionListDuplicate[i] = listMinions[i];
+
+				GameObject newMinon = Instantiate(minionPrefab,
+					(new Vector3(0f, 0f, 0f)),
+					Quaternion.identity);
+
+				if (turn % 2 != 0)
+				{
+					newMinon.transform.position = new Vector3(5f, 1.1f, 5f);
+					newMinon.tag = "Player2";
+				}
+				else
+				{
+					newMinon.transform.position = new Vector3(-5f, 1.1f, -5f);
+					newMinon.tag = "Player";
+				}
+
+				newMinon.GetComponent<minionScript>().setOwner(turn);
+				minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
+
+				listMinions = minionListDuplicate;
+
 				return;
 			}
+			////////////////////////////////
+			// End of Spell Cast Sequence //
+			////////////////////////////////
+
 
 			// Debug.Log("Contact made");
 

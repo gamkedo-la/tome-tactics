@@ -13,6 +13,7 @@ public class minionScript : MonoBehaviour
 	[SerializeField] private GameObject target;
     private NavMeshAgent agent;
     private bool stopAdjustAllowed = false;
+    private int ownerCaster = 0;
 
     void Start()
     {
@@ -66,5 +67,13 @@ public class minionScript : MonoBehaviour
     	agent.destination = target.transform.position;;
 
         stopAdjustAllowed = true;
+    }
+
+    public void setOwner(int turnNum)
+    {
+        if ((turnNum % 2) != 0 )
+            ownerCaster = 1;
+        else
+            ownerCaster = 2;
     }
 }
