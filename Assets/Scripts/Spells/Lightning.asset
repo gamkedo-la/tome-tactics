@@ -20,3 +20,4 @@ MonoBehaviour:
   power: 0
   accuracy: 0
   effect: DoubleCast
+  description: A bolt of lightning strikes foes from above!

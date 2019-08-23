@@ -1034,9 +1034,8 @@ MonoBehaviour:
   spell_1: A cone of electricity jolts those inside!
   spell_2: A bolt of lightning strikes foes from above!
   spells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f172649b60255e641b4c9f091281b686, type: 2}
+  - {fileID: 11400000, guid: aa0d558f58f9bcb49b5a53bcae28b1e6, type: 2}
 --- !u!114 &301385152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,8 +1671,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 301385151}
-        m_MethodName: firstSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1903,12 +1902,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 301385151}
-        m_MethodName: secondSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2250,8 +2249,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1095427415}
-        m_MethodName: firstSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2885,9 +2884,8 @@ MonoBehaviour:
   spell_1: A cone of cold damages those inside!
   spell_2: Spike an enemy from above with a frigid chunk of ice!
   spells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4753d9ea3360f034e994ca6f90213f5a, type: 2}
+  - {fileID: 11400000, guid: cb0f157ff9757164699b64dd4e1cdcd1, type: 2}
 --- !u!114 &1095427416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3594,7 +3592,6 @@ MonoBehaviour:
   spells:
   - {fileID: 11400000, guid: e87bd942b3707ae4faace94e113c7c81, type: 2}
   - {fileID: 11400000, guid: b0da1fcbbb77b7e45a2b4a7ad5ef33d1, type: 2}
-  - {fileID: 0}
 --- !u!114 &1352396061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3804,12 +3801,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1095427415}
-        m_MethodName: secondSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

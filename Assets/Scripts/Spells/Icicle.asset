@@ -20,3 +20,4 @@ MonoBehaviour:
   power: 0
   accuracy: 0
   effect: Slow
+  description: Spike an enemy from above with a frigid chunk of ice!

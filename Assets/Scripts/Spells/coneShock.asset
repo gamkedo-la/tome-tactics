@@ -20,3 +20,4 @@ MonoBehaviour:
   power: 3
   accuracy: 2
   effect: DoubleCast
+  description: A cone of electricity jolts those inside!

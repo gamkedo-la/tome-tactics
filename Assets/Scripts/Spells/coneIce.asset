@@ -20,3 +20,4 @@ MonoBehaviour:
   power: 4
   accuracy: 3
   effect: Freeze
+  description: A cone of cold damages those inside!
