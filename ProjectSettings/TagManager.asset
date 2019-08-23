@@ -7,6 +7,9 @@ TagManager:
   - 3D UI
   - Opponent
   - Player2
+  - PlayerMinion
+  - Player2Minion
+  - Objective
   layers:
   - Default
   - TransparentFX

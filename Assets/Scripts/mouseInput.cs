@@ -179,16 +179,16 @@ public class mouseInput : MonoBehaviour
 			{
 				debug.text = "Minion selected";
 				selection = hit.collider.gameObject;
-				NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
-				ShowPath.currPath = agent.path.corners;
+				ShowPath.currPath = new Vector3[2]{ selection.transform.position,
+									selection.GetComponent<minionScript>().getTargetPos() };
 				return;
 			} // Even = player 2
 			else if ((turn % 2 == 0) && (hit.collider.gameObject.tag == "Player2Minion"))
 			{
 				debug.text = "Minion selected";
 				selection = hit.collider.gameObject;
-				NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
-				ShowPath.currPath = agent.path.corners;
+				ShowPath.currPath = new Vector3[2]{ selection.transform.position,
+									selection.GetComponent<minionScript>().getTargetPos() };
 				return;
 			}
 

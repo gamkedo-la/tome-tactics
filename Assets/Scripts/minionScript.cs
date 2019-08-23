@@ -81,4 +81,9 @@ public class minionScript : MonoBehaviour
     {
         target = newTarget;
     }
+
+    public Vector3 getTargetPos()
+    {
+        return target.transform.position;
+    }
 }
