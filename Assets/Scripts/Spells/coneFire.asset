@@ -20,3 +20,4 @@ MonoBehaviour:
   power: 5
   accuracy: 4
   effect: Burning
+  description: A cone of flame ignites enemies!

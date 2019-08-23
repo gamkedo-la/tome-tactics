@@ -18,6 +18,7 @@ public class Spell : ScriptableObject
     [SerializeField] private int power = 0;
     [SerializeField] private int accuracy = 0;
     [SerializeField] private string effect = ""; // unsure if string is best to use
+    [SerializeField] private string description;
 
     // Setters
     public void setName(string newName) { spellName = newName; }
@@ -25,6 +26,7 @@ public class Spell : ScriptableObject
     public void setColor(Color newColor) { UIColor = newColor; }
     public void setRange(int newRange) { range = newRange; }
     public void setUISprite(Sprite newSprite) { UISprite = newSprite; }
+    public void setDescription(string desc) { description = desc; }
 
     // Getters
     public string getName() { return spellName; }
@@ -32,5 +34,6 @@ public class Spell : ScriptableObject
     public Color getColor() { return UIColor; }
     public int getRange() { return range; }
     public Sprite getUISprite() { return UISprite; }
+    public string getDescription() { return description; }
 
 }

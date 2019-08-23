@@ -18,7 +18,7 @@ public class casterCreation : MonoBehaviour
 	private Canvas activeCanvas;
 	public Text spellDesc;
 	public Text spellBonus;
-	// public Image spellImg; (to be used later)
+    public Image spellImg;
 
 	private schoolHandler handle;
 	public schoolHandler player;
@@ -58,7 +58,7 @@ public class casterCreation : MonoBehaviour
 
     	// Get canvas handle
 		handle = activeCanvas.GetComponent<schoolHandler>();
-		handle.setElements(spellDesc, spellBonus);
+		handle.setElements(spellDesc, spellBonus, spellImg);
 
 		// If player/selections tab, do stuff
 		if (tabNum == 3)

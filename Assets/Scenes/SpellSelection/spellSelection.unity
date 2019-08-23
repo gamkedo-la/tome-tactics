@@ -487,6 +487,10 @@ MonoBehaviour:
   school: Active
   spell_1: 
   spell_2: 
+  spells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &160784534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1033,10 @@ MonoBehaviour:
   school: Shock
   spell_1: A cone of electricity jolts those inside!
   spell_2: A bolt of lightning strikes foes from above!
+  spells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &301385152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,6 +1990,7 @@ MonoBehaviour:
   - {fileID: 160784532}
   spellDesc: {fileID: 1120889757}
   spellBonus: {fileID: 1271696931}
+  spellImg: {fileID: 1510756821}
   player: {fileID: 160784533}
   pageTurn: {fileID: 8300000, guid: e090c505772065e49a1369e945e36403, type: 3}
   pageFlipping: {fileID: 8300000, guid: 2d05de99186d1c64390a76741587f8f8, type: 3}
@@ -2875,6 +2884,10 @@ MonoBehaviour:
   school: Ice
   spell_1: A cone of cold damages those inside!
   spell_2: Spike an enemy from above with a frigid chunk of ice!
+  spells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1095427416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3578,6 +3591,10 @@ MonoBehaviour:
   school: Fire
   spell_1: A cone of flame ignites enemies!
   spell_2: Toss a mass of fire towards a foe. A classic.
+  spells:
+  - {fileID: 11400000, guid: e87bd942b3707ae4faace94e113c7c81, type: 2}
+  - {fileID: 11400000, guid: b0da1fcbbb77b7e45a2b4a7ad5ef33d1, type: 2}
+  - {fileID: 0}
 --- !u!114 &1352396061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3868,10 +3885,10 @@ RectTransform:
   m_Father: {fileID: 1473867196}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22859454, y: 0.12952618}
-  m_AnchorMax: {x: 0.69387096, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 58.79}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510756821
 MonoBehaviour:
@@ -3897,7 +3914,7 @@ MonoBehaviour:
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -4350,8 +4367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 307.74316, y: -167.2404}
-  m_SizeDelta: {x: 575.4863, y: 294.4808}
+  m_AnchoredPosition: {x: 174.96791, y: -80.12094}
+  m_SizeDelta: {x: 309.93582, y: 120.24189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661008385
 MonoBehaviour:
@@ -4397,8 +4414,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1352396060}
-        m_MethodName: firstSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5022,8 +5039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 307.74316, y: -461.7212}
-  m_SizeDelta: {x: 575.4863, y: 294.4808}
+  m_AnchoredPosition: {x: 174.96791, y: -200.36282}
+  m_SizeDelta: {x: 309.93582, y: 120.24189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957314006
 MonoBehaviour:
@@ -5069,12 +5086,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1352396060}
-        m_MethodName: secondSpell
-        m_Mode: 1
+        m_MethodName: selectSpell
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5565,8 +5582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 307.74316, y: -751.202}
-  m_SizeDelta: {x: 575.4863, y: 284.4808}
+  m_AnchoredPosition: {x: 174.96791, y: -315.6047}
+  m_SizeDelta: {x: 309.93582, y: 110.24189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084972072
 MonoBehaviour:

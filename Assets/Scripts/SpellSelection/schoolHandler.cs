@@ -13,11 +13,32 @@ public class schoolHandler : MonoBehaviour
 	private string activeSpell = "";
 	private string activeDesc = "";
 	private Text descriptor;
-	// private Image image;
+    private Image image;
 
-	public string school = "";
+    public string school = "";
 	public string spell_1 = "";
 	public string spell_2 = "";
+
+    public Spell[] spells;
+
+    struct SpellHandler
+    {
+        Spell spell;
+
+    }
+
+    public void selectSpell(int selection)
+    {
+        if (selection < spells.Length)
+        {
+            Spell spell = spells[selection];
+            descriptor.text = spell.getDescription();
+            image.sprite = spell.getUISprite();
+
+            activeSpell = EventSystem.current.currentSelectedGameObject.name;
+            activeDesc = spell.getDescription();
+        }
+    }
 
 	public void firstSpell()
 	{
@@ -35,9 +56,10 @@ public class schoolHandler : MonoBehaviour
 		activeDesc = spell_2;
 	}
 
-	public void setElements(Text textDesc, Text textBonus)
+	public void setElements(Text textDesc, Text textBonus, Image spellImg)
 	{
 		descriptor = textDesc;
+        image = spellImg;
 
 		textBonus.text = school + " Bonuses";
 
