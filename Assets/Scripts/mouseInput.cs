@@ -121,14 +121,9 @@ public class mouseInput : MonoBehaviour
 				targetingOrb.remove();
                 SpellSelected = false;
 
-				// Check if there are any minions to move
-				// if so, move them!
-				if (listMinions == null || listMinions.Length == 0 || listMinions[0])
-					foreach (minionScript minion in listMinions)
-						if (minion != null)
-							minion.moveMinion();
-
-				// Add minion to board
+                /////////////////////////
+				// Add minion to board //
+				/////////////////////////
 				minionScript[] minionListDuplicate = new minionScript[listMinions.Length + 1];
 
 				for (int i = 0; i < listMinions.Length; ++i)
@@ -141,18 +136,25 @@ public class mouseInput : MonoBehaviour
 				if (turn % 2 != 0)
 				{
 					newMinon.transform.position = new Vector3(5f, 1.1f, 5f);
-					newMinon.tag = "Player2";
+					newMinon.tag = "Player2Minion";
 				}
 				else
 				{
 					newMinon.transform.position = new Vector3(-5f, 1.1f, -5f);
-					newMinon.tag = "Player";
+					newMinon.tag = "PlayerMinion";
 				}
 
 				newMinon.GetComponent<minionScript>().setOwner(turn);
 				minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
 
 				listMinions = minionListDuplicate;
+
+				// Check if there are any minions to move
+				// if so, move them!
+				if (listMinions == null || listMinions.Length == 0 || listMinions[0])
+					foreach (minionScript minion in listMinions)
+						if (minion != null)
+							minion.moveMinion();
 
 				return;
 			}
@@ -169,6 +171,27 @@ public class mouseInput : MonoBehaviour
                 clearUI(); // Ignore non-Player objects
 			}
 
+			//////////////////////
+			// Minion Selection //
+			//////////////////////
+			// Odd = player 1
+			if ((turn % 2 != 0) && (hit.collider.gameObject.tag == "PlayerMinion"))
+			{
+				debug.text = "Minion selected";
+				selection = hit.collider.gameObject;
+				NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
+				ShowPath.currPath = agent.path.corners;
+				return;
+			} // Even = player 2
+			else if ((turn % 2 == 0) && (hit.collider.gameObject.tag == "Player2Minion"))
+			{
+				debug.text = "Minion selected";
+				selection = hit.collider.gameObject;
+				NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
+				ShowPath.currPath = agent.path.corners;
+				return;
+			}
+
 			///////////////////////////////////////////////////////////////
 			// Player turns, prevent selection of other player's objects //
 			///////////////////////////////////////////////////////////////
@@ -181,7 +204,6 @@ public class mouseInput : MonoBehaviour
 			{
 				return;
 			}
-
 
 			// If method hasn't returned yet, probably hit a Caster
 
@@ -210,6 +232,15 @@ public class mouseInput : MonoBehaviour
 
 			if (selection != null)
 			{
+				if (selection.tag == "PlayerMinion" || selection.tag == "Player2Minion")
+				{
+					if (hit.collider.gameObject.tag == "Objective")
+					{
+						selection.GetComponent<minionScript>().setTarget(hit.collider.gameObject);
+					}
+					return;
+				}
+
 				NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
 				agent.speed = 0.0f;
 				agent.destination = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);

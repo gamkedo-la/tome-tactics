@@ -76,4 +76,9 @@ public class minionScript : MonoBehaviour
         else
             ownerCaster = 2;
     }
+
+    public void setTarget(GameObject newTarget)
+    {
+        target = newTarget;
+    }
 }
