@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 20
   UIColor: {r: 0, g: 0.7294118, b: 1, a: 1}
   range: 5
-  UISprite: {fileID: 0}
+  UISprite: {fileID: 21300000, guid: 69eac7856d90e87419673849938f1414, type: 3}
   power: 0
   accuracy: 0
   effect: Slow

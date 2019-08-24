@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 20
   UIColor: {r: 0.8980392, g: 0.8784314, b: 0, a: 1}
   range: 15
-  UISprite: {fileID: 0}
+  UISprite: {fileID: 21300000, guid: 868e41d459c9ba44d9ac58edf58abea0, type: 3}
   power: 0
   accuracy: 0
   effect: DoubleCast
