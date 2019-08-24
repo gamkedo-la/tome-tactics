@@ -18,6 +18,7 @@ public class schoolHandler : MonoBehaviour
     public string school = "";
 	public string spell_1 = "";
 	public string spell_2 = "";
+	public string spell_3 = "";
 
     public Spell[] spells;
 
@@ -56,6 +57,14 @@ public class schoolHandler : MonoBehaviour
 		activeDesc = spell_2;
 	}
 
+	public void thirdSpell()
+	{
+		descriptor.text = spell_3;
+
+		activeSpell = EventSystem.current.currentSelectedGameObject.name;
+		activeDesc = spell_3;
+	}
+
 	public void setElements(Text textDesc, Text textBonus, Image spellImg)
 	{
 		descriptor = textDesc;
@@ -91,6 +100,14 @@ public class schoolHandler : MonoBehaviour
 
 			spell_2 = description;
 		}
+		else if (spell_3 == "")
+		{
+			Transform t = transform.Find("Spell Third/Text");
+			Text tex = t.gameObject.GetComponent<Text>();
+			tex.text = name;
+
+			spell_3 = description;
+		}
 		else
 		{
 			print("All full!");
@@ -116,9 +133,17 @@ public class schoolHandler : MonoBehaviour
 
 			spell_2 = "";
 		}
+		else if (spell_3 == "")
+		{
+			Transform t = transform.Find("Spell Third/Text");
+			Text tex = t.gameObject.GetComponent<Text>();
+			tex.text = "Empty!";
+
+			spell_3 = "";
+		}
 		else
 		{
-			print("Probably empty?");
+			print("Probably no spells");
 		}
 	}
 
@@ -138,6 +163,8 @@ public class schoolHandler : MonoBehaviour
 			size++;
 		if (spell_2 != "")
 			size++;
+		if (spell_3 != "")
+			size++;
 
 		string[] spells = new string[size];
 
@@ -152,6 +179,14 @@ public class schoolHandler : MonoBehaviour
 			t = transform.Find("Spell Second/Text");
 			tex = t.gameObject.GetComponent<Text>();
 			spells[1] = tex.text;
+		}
+
+		// Third Spell
+		if (size > 2)
+		{
+			t = transform.Find("Spell Third/Text");
+			tex = t.gameObject.GetComponent<Text>();
+			spells[2] = tex.text;			
 		}
 
 		// foreach (string s in spells)

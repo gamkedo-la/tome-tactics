@@ -140,4 +140,29 @@ public class casterCreation : MonoBehaviour
 
     public void playerTab() { switchTab(3); }
 
+    ////////////////////////////
+    // For Opponent Selection //
+    ////////////////////////////
+    private byte opponentPick = 0;
+    public void pickShock()
+    {
+    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
+    	descText.text = "The shock Caster possesses the Lightning and Cone of Shock spells";
+    	opponentPick = 1;
+    }
+
+    public void pickFire()
+    {
+    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
+    	descText.text = "The fire Caster possesses the Fireball and Cone of Flame spells";
+    	opponentPick = 2;
+    }
+
+    public void pickIce()
+    {
+    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
+    	descText.text = "The ice Caster possesses the Icicle and Cone of Frost spells";
+    	opponentPick = 3;
+    }
+
 }
