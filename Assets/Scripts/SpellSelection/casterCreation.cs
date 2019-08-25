@@ -12,6 +12,8 @@ public class casterCreation : MonoBehaviour
 {
 	[SerializeField] private spellContainer casterSpells;
 	[SerializeField] private Button addRemoveSpell;
+	[SerializeField] private GameObject playerCanvas;
+	[SerializeField] private GameObject opponentCanvas;
 
 	public Canvas[] spellCanvas;
 
@@ -19,6 +21,8 @@ public class casterCreation : MonoBehaviour
 	public Text spellDesc;
 	public Text spellBonus;
     public Image spellImg;
+
+    private Text descText;
 
 	private schoolHandler handle;
 	public schoolHandler player;
@@ -99,6 +103,19 @@ public class casterCreation : MonoBehaviour
 	    	player.clearSpell(handle.getActiveSpell(), handle.getActiveDesc());
 	}
 
+	public void backOpponentSelection()
+	{
+		playerCanvas.SetActive(true);
+		opponentCanvas.SetActive(false);
+	}
+
+	public void forwardOpponentSelection()
+	{
+		opponentCanvas.SetActive(true);
+		playerCanvas.SetActive(false);
+		descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
+	}
+
 	//////////////////////
 	// Scene Navigation //
 	//////////////////////
@@ -107,15 +124,45 @@ public class casterCreation : MonoBehaviour
 		// Check if spells selected
 		if (player.isEmpty())
 		{
-			print("No spells selected!");
+			descText.text = "No spells selected!";
 			return;
 		}
 
 		// Get spells
 		string[] playerSpells = player.getPlayerSpells();
 
-		// Pass spells into Caster Spells
+		////////////////////////
+		// Set Player1 spells //
+		////////////////////////
 		casterSpells.setSpells(1, playerSpells);
+
+		////////////////////////
+		// Set Player2 Spells //
+		////////////////////////
+		string[] player2Spells = new string[2];
+
+		if (opponentPick == 1)
+		{
+			player2Spells[0] = "Lightning";
+			player2Spells[1] = "Cone of Shock";
+		}
+		else if (opponentPick == 2)
+		{
+			player2Spells[0] = "Fireball";
+			player2Spells[1] = "Cone of Flame";
+		}
+		else if (opponentPick == 3)
+		{
+			player2Spells[0] = "Icicle";
+			player2Spells[1] = "Cone of Frost";
+		}
+		else
+		{
+			descText.text = "No opponent picked!";
+			return;
+		}
+
+		casterSpells.setSpells(2, player2Spells);
 
 		// Prevent loss of Caster Spells object
 		DontDestroyOnLoad(casterSpells);
@@ -146,23 +193,19 @@ public class casterCreation : MonoBehaviour
     private byte opponentPick = 0;
     public void pickShock()
     {
-    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
     	descText.text = "The shock Caster possesses the Lightning and Cone of Shock spells";
     	opponentPick = 1;
     }
 
     public void pickFire()
     {
-    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
     	descText.text = "The fire Caster possesses the Fireball and Cone of Flame spells";
     	opponentPick = 2;
     }
 
     public void pickIce()
     {
-    	Text descText = GameObject.Find("Opponent Canvas/Spell Panel/Spell Display Panel/Spell Description Canvas/Caster Description").GetComponent<Text>();
     	descText.text = "The ice Caster possesses the Icicle and Cone of Frost spells";
     	opponentPick = 3;
     }
-
 }

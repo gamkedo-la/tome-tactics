@@ -24,8 +24,10 @@ public class casterScript : MonoBehaviour
     void Start()
     {
         transferSpells = GameObject.Find("Caster Spells");
-        if (this.tag == "Player2" && transferSpells != null)
+        if (this.tag == "Player" && transferSpells != null)
             spellBook = transferSpells.GetComponent<spellContainer>().getSpells(1);
+        else if (this.tag == "Player2" && transferSpells != null)
+            spellBook = transferSpells.GetComponent<spellContainer>().getSpells(2);
 
         // anim = gameObject.GetComponent<Animator>();
         agent = gameObject.GetComponent<NavMeshAgent>();

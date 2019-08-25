@@ -188,9 +188,7 @@ public class schoolHandler : MonoBehaviour
 			tex = t.gameObject.GetComponent<Text>();
 			spells[2] = tex.text;			
 		}
-
-		// foreach (string s in spells)
-		// 	print(s);
+		
 		return spells;
 	}
 }

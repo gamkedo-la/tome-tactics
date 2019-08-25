@@ -30,7 +30,10 @@ public class spellContainer : MonoBehaviour
     		casterSpells2 = new Spell[newSpells.Length];
 
     		for(int i = 0; i < newSpells.Length; ++i)
+            {
+                casterSpells2[i] = new Spell();
     			casterSpells2[i].setName(newSpells[i]);
+            }
     	}
     }
 
