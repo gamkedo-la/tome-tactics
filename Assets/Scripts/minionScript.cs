@@ -14,6 +14,7 @@ public class minionScript : MonoBehaviour
     private NavMeshAgent agent;
     private bool stopAdjustAllowed = false;
     private int ownerCaster = 0;
+    private int hp = 20;
 
     void Start()
     {
@@ -23,6 +24,9 @@ public class minionScript : MonoBehaviour
 
     void Update()
     {
+        if (hp <= 0)
+            Destroy(gameObject);
+
     	if (agent.remainingDistance != Mathf.Infinity && agent.remainingDistance > 0f)
     	{
             if (stopAdjustAllowed)
@@ -62,8 +66,18 @@ public class minionScript : MonoBehaviour
         }
     }
 
+    public void takeDamage(int damage)
+    {
+        print("Damage: " + damage);
+        hp -= damage;
+    }
+
     public void moveMinion()
     {
+        float distance = Vector3.Distance(gameObject.transform.position, target.transform.position);
+        if (distance <= 7f)
+            return;
+
     	agent.destination = target.transform.position;;
 
         stopAdjustAllowed = true;

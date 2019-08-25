@@ -17,6 +17,7 @@ public class toss : MonoBehaviour
 	private float time = 0.0f;
     private GameObject caster = null;
     private casterScript enemy = null;
+    private minionScript minion = null;
     private bool moving = true;
 
 	[SerializeField] private Vector3 curve;
@@ -50,7 +51,11 @@ public class toss : MonoBehaviour
         int dam = roller.isDone();
         if (dam != 0)
         {
-            enemy.takeDamage(dam);
+            if (enemy)
+                enemy.takeDamage(dam);
+            else if (minion)
+                minion.takeDamage(dam);
+
             roller.Reset();
             gameLogic.setIsCasting(false);
             Destroy(gameObject, 2.0f); // This delay is because the animation is finished after this call.
@@ -104,6 +109,14 @@ public class toss : MonoBehaviour
                 roller.rollDice(6);
 				Debug.Log("Hit enemy caster! Damage taken!");
 			}
+            else if (minion = coll.gameObject.GetComponent<minionScript>())
+            {
+                moving = false;
+                transform.position = new Vector3(0.0f, 100.0f, 0.0f);
+                roller.rollDice(6);
+                Debug.Log("Hit enemy minion! Damage taken!");
+            }
+
     	}
     }
 }

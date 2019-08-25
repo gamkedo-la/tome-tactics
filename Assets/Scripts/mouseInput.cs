@@ -58,12 +58,12 @@ public class mouseInput : MonoBehaviour
     	////////////////////
     	// Win conditions //
     	////////////////////
-    	if (scoreRed >= 50)
+    	if (scoreRed >= 100)
     	{
     		debug.text = "Red Caster wins! Press Escape to return to the Main Menu";
     		return;
     	}
-    	else if (scoreBlue >= 50)
+    	else if (scoreBlue >= 100)
     	{
     		debug.text = "Blue Caster wins! Press Escape to return to the Main Menu";
     		return;
@@ -328,7 +328,7 @@ public class mouseInput : MonoBehaviour
 		{
     		if (selection.tag == "PlayerMinion" || selection.tag == "Player2Minion")
 	    		return;
-	    		
+
 			// testCircle((float)selection.GetComponent<casterScript>().getRange() * 2.0f);
 
 			NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();

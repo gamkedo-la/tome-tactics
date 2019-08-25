@@ -8,6 +8,7 @@ public class strike : MonoBehaviour
     private mouseInput gameLogic;
     private ParticleSystem system;
     private casterScript enemy = null;
+    private minionScript minion = null;
 
     void Start()
     {
@@ -31,7 +32,11 @@ public class strike : MonoBehaviour
             int dam = roller.isDone();
             if (dam != 0)
             {
-                enemy.takeDamage(dam);
+                if (enemy)
+                    enemy.takeDamage(dam);
+                else if (minion)
+                    minion.takeDamage(dam);
+
                 roller.Reset();
                 gameLogic.setIsCasting(false);
                 Destroy(gameObject);
@@ -47,6 +52,11 @@ public class strike : MonoBehaviour
             roller.rollDice(2);
 			enemy = coll.gameObject.GetComponent<casterScript>();
 		}
+        else if (coll.collider.tag == "Player2Minion" || coll.collider.tag == "PlayerMinion")
+        {
+            roller.rollDice(2);
+            minion = coll.gameObject.GetComponent<minionScript>();
+        }
     }
 }
 

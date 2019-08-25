@@ -32,7 +32,7 @@ public class spellHandler : MonoBehaviour
     	selection.GetComponent<casterScript>().startCast();
 
 		GameObject ball = Instantiate(fireball,
-			selection.transform.position,
+			(selection.transform.position + (new Vector3(0.0f, 4.0f, 0.0f))),
 			Quaternion.identity);
 
         var toss_ball = ball.GetComponent<toss>();

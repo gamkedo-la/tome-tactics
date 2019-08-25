@@ -7,6 +7,7 @@ public class drop : MonoBehaviour
     private RollHandler roller;
     private mouseInput gameLogic;
     private casterScript enemy = null;
+    private minionScript minion = null;
     private bool slide = false, stop = false;
     private int stopCount = 30;
 
@@ -24,7 +25,11 @@ public class drop : MonoBehaviour
         int dam = roller.isDone();
         if (dam != 0)
         {
-            enemy.takeDamage(dam);
+            if (enemy)
+                enemy.takeDamage(dam);
+            else if (minion)
+                minion.takeDamage(dam);
+
             roller.Reset();
             gameLogic.setIsCasting(false);
             Destroy(gameObject);
@@ -72,6 +77,11 @@ public class drop : MonoBehaviour
             enemy = coll.gameObject.GetComponent<casterScript>();
             roller.rollDice(3);
 		}
+        else if (coll.collider.tag == "Player2Minion" || coll.collider.tag == "PlayerMinion")
+        {
+            minion = coll.gameObject.GetComponent<minionScript>();
+            roller.rollDice(3);
+        }
 
         slide = true;
     }
