@@ -10,7 +10,7 @@ using UnityEngine.AI;
 public class minionScript : MonoBehaviour
 {
     [SerializeField] private Animator moveAnimator;
-	[SerializeField] private GameObject target;
+	[SerializeField] private GameObject target = null;
     private NavMeshAgent agent;
     private bool stopAdjustAllowed = false;
     private int ownerCaster = 0;
@@ -82,6 +82,14 @@ public class minionScript : MonoBehaviour
     public void setTarget(GameObject newTarget)
     {
         target = newTarget;
+    }
+
+    public bool hasTarget()
+    {
+        if (target == null)
+            return false;
+        else
+            return true;
     }
 
     public Vector3 getTargetPos()

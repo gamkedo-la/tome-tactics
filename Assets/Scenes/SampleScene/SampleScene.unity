@@ -297,7 +297,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 6, z: 10}
+  m_Size: {x: 4, y: 6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &112872304
 MeshRenderer:
@@ -344,6 +344,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112872301}
   m_Mesh: {fileID: -5495902117074765545, guid: 08315d563ebadf149944c7c301780911, type: 3}
+--- !u!1 &159683814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6249672370896913687, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1907806331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &197755306
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +846,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 6, z: 10}
+  m_Size: {x: 4, y: 6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &485112709
 MeshRenderer:
@@ -951,7 +957,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 6, z: 10}
+  m_Size: {x: 4, y: 6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &520847510
 MeshRenderer:
@@ -2370,20 +2376,40 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3509064506504506362, guid: 2100288526a63424eb25bfb80cd90aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2488335312459273216, guid: 2100288526a63424eb25bfb80cd90aa7,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488335312459273216, guid: 2100288526a63424eb25bfb80cd90aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3146603048600665209, guid: 2100288526a63424eb25bfb80cd90aa7,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3146603048600665209, guid: 2100288526a63424eb25bfb80cd90aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5216947753921493282, guid: 2100288526a63424eb25bfb80cd90aa7,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216947753921493282, guid: 2100288526a63424eb25bfb80cd90aa7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1077239579590372884, guid: 2100288526a63424eb25bfb80cd90aa7,
         type: 3}
@@ -2512,7 +2538,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 6, z: 10}
+  m_Size: {x: 4, y: 6, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1117215838
 MeshRenderer:
@@ -3557,7 +3583,7 @@ PrefabInstance:
     - target: {fileID: 6249672370896913691, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.27
+      value: -8.77
       objectReference: {fileID: 0}
     - target: {fileID: 6249672370896913691, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
@@ -3797,6 +3823,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: aa0d558f58f9bcb49b5a53bcae28b1e6,
         type: 2}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: opponent
+      value: 
+      objectReference: {fileID: 159683814}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 763584248}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
@@ -4178,6 +4214,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e87bd942b3707ae4faace94e113c7c81,
         type: 2}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: opponent
+      value: 
+      objectReference: {fileID: 253560869}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: isRobot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676250817150090683, guid: a2dd1b3df6c57ff48be05e1f532935c3,
+        type: 3}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 763584248}
     - target: {fileID: 2183622309205357748, guid: a2dd1b3df6c57ff48be05e1f532935c3,
         type: 3}
       propertyPath: m_Camera
@@ -4618,7 +4669,7 @@ PrefabInstance:
     - target: {fileID: 1071647914894316511, guid: 9a91b6649ff94f7419a73854439883be,
         type: 3}
       propertyPath: m_Text
-      value: Debug Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1071647914076664231, guid: 9a91b6649ff94f7419a73854439883be,
         type: 3}

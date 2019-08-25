@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class mouseInput : MonoBehaviour
 {
@@ -48,17 +49,47 @@ public class mouseInput : MonoBehaviour
 
     void Update()
     {
-    	// Defer to AI function
-    	if (selection != null && selection.GetComponent<casterScript>().isRobot)
+    	///////////////
+    	// Main Menu //
+    	///////////////
+    	if (Input.GetKeyUp(KeyCode.Escape))
+    		SceneManager.LoadScene("MainMenu");
+
+    	////////////////////
+    	// Win conditions //
+    	////////////////////
+    	if (scoreRed >= 50)
     	{
-    		// print("Caster is Robot");
-    		if (robotHandled && !isCasting)
-			{
-				print(robotHandled);
-				robotHandled = false;
-		    	handleRobot();
-		    }
+    		debug.text = "Red Caster wins! Press Escape to return to the Main Menu";
     		return;
+    	}
+    	else if (scoreBlue >= 50)
+    	{
+    		debug.text = "Blue Caster wins! Press Escape to return to the Main Menu";
+    		return;
+    	}
+
+    	/////////////////
+    	// AI Handling //
+    	/////////////////
+    	if (selection != null)
+    	{
+    		if (selection.tag == "PlayerMinion" || selection.tag == "Player2Minion")
+    		{
+    			// This scope intentionally left blank
+    		}
+    		else if (selection.GetComponent<casterScript>().isRobot)
+    		{
+				// print("Caster is Robot");
+				if (robotHandled && !isCasting)
+				{
+					print(robotHandled);
+					robotHandled = false;
+			    	handleRobot();
+			    }
+
+	    		return;
+    		}
     	}
 
     	// Prevent range calculation from happening more than once after a spell is selected
@@ -157,6 +188,8 @@ public class mouseInput : MonoBehaviour
 				newMinon.tag = "PlayerMinion";
 
 				newMinon.GetComponent<minionScript>().setOwner(turn);
+				int objPick = Random.Range(0, Objectives.Length);
+				newMinon.GetComponent<minionScript>().setTarget(Objectives[objPick]);
 				minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
 
 				listMinions = minionListDuplicate;
@@ -293,6 +326,9 @@ public class mouseInput : MonoBehaviour
 		////////////////////////////////
 		if (selection != null)
 		{
+    		if (selection.tag == "PlayerMinion" || selection.tag == "Player2Minion")
+	    		return;
+	    		
 			// testCircle((float)selection.GetComponent<casterScript>().getRange() * 2.0f);
 
 			NavMeshAgent agent = selection.GetComponent<NavMeshAgent>();
@@ -402,6 +438,8 @@ public class mouseInput : MonoBehaviour
 		newMinon.tag = "Player2Minion";
 
 		newMinon.GetComponent<minionScript>().setOwner(turn);
+		int objPick = Random.Range(0, Objectives.Length);
+		newMinon.GetComponent<minionScript>().setTarget(Objectives[objPick]);
 		minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
 
 		listMinions = minionListDuplicate;

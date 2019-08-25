@@ -115,7 +115,7 @@ public class casterScript : MonoBehaviour
     
     public void pickSpell()
     {
-        spellNum = Random.Range(1, spellBook.Length);
+        spellNum = Random.Range(0, spellBook.Length - 1);
         checkRange();
     }
 
