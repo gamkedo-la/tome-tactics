@@ -58,12 +58,12 @@ public class mouseInput : MonoBehaviour
     	////////////////////
     	// Win conditions //
     	////////////////////
-    	if (scoreRed >= 100)
+    	if (scoreRed >= 100 || GameObject.Find("Caster1") == null)
     	{
     		debug.text = "Red Caster wins! Press Escape to return to the Main Menu";
     		return;
     	}
-    	else if (scoreBlue >= 100)
+    	else if (scoreBlue >= 100 || GameObject.Find("Caster2") == null)
     	{
     		debug.text = "Blue Caster wins! Press Escape to return to the Main Menu";
     		return;

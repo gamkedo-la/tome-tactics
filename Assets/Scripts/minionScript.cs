@@ -25,7 +25,10 @@ public class minionScript : MonoBehaviour
     void Update()
     {
         if (hp <= 0)
-            Destroy(gameObject);
+        {
+            gameObject.SetActive(false);
+            return;
+        }
 
     	if (agent.remainingDistance != Mathf.Infinity && agent.remainingDistance > 0f)
     	{
@@ -75,7 +78,7 @@ public class minionScript : MonoBehaviour
     public void moveMinion()
     {
         float distance = Vector3.Distance(gameObject.transform.position, target.transform.position);
-        if (distance <= 7f)
+        if (distance <= 5f)
             return;
 
     	agent.destination = target.transform.position;;

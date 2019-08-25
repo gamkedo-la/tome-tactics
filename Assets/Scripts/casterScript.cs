@@ -42,6 +42,12 @@ public class casterScript : MonoBehaviour
         if (animMove.GetBool("move") && !agent.hasPath)
             stopMove();
 
+        if (hp <= 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (isRobot)
         {
             float distance = 0.0f;
