@@ -49,10 +49,10 @@ public class minionScript : MonoBehaviour
 
             if (stopAdjustAllowed)
             {
-                print(gameObject + " distance: " + distance);
+                // print(gameObject + " distance: " + distance);
                 agent.stoppingDistance = distance - 3.0f;
                 agent.speed = 3.5f;
-                print(agent.stoppingDistance + " from Infinity");
+                // print(agent.stoppingDistance + " from Infinity");
                 stopAdjustAllowed = false;
             }
             else if (distance <= agent.stoppingDistance)

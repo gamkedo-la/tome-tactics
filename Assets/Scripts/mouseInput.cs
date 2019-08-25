@@ -39,6 +39,7 @@ public class mouseInput : MonoBehaviour
 	// or when minions are moving
     private bool isCasting = false;
     private bool isMovingMinions = false;
+    private bool robotHandled = false;
 
     public int scoreRed = 0, scoreBlue = 0;
     [SerializeField] private Text textRed, textBlue;
@@ -47,6 +48,19 @@ public class mouseInput : MonoBehaviour
 
     void Update()
     {
+    	// Defer to AI function
+    	if (selection != null && selection.GetComponent<casterScript>().isRobot)
+    	{
+    		// print("Caster is Robot");
+    		if (robotHandled && !isCasting)
+			{
+				print(robotHandled);
+				robotHandled = false;
+		    	handleRobot();
+		    }
+    		return;
+    	}
+
     	// Prevent range calculation from happening more than once after a spell is selected
         if (state > 0 && !skipRangeCalc)
     	{
@@ -124,6 +138,9 @@ public class mouseInput : MonoBehaviour
 				targetingOrb.remove();
                 SpellSelected = false;
 
+                robotHandled = true;
+				selection = GameObject.Find("Caster2");
+
                 /////////////////////////
 				// Add minion to board //
 				/////////////////////////
@@ -136,16 +153,8 @@ public class mouseInput : MonoBehaviour
 					(new Vector3(0f, 0f, 0f)),
 					Quaternion.identity);
 
-				if (turn % 2 != 0)
-				{
-					newMinon.transform.position = new Vector3(5f, 1.1f, 5f);
-					newMinon.tag = "Player2Minion";
-				}
-				else
-				{
-					newMinon.transform.position = new Vector3(-5f, 1.1f, -5f);
-					newMinon.tag = "PlayerMinion";
-				}
+				newMinon.transform.position = new Vector3(-5f, 1.1f, -5f);
+				newMinon.tag = "PlayerMinion";
 
 				newMinon.GetComponent<minionScript>().setOwner(turn);
 				minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
@@ -339,4 +348,90 @@ public class mouseInput : MonoBehaviour
     public void setIsCasting(bool state) { isCasting = state; }
 
     public void setIsMovingMinions(bool state) { isMovingMinions = state; }
+
+    ////////////////////////
+    // Caster AI Handling //
+    ////////////////////////
+    private void handleRobot()
+    {
+    	selection.GetComponent<casterScript>().pickSpell();
+    }
+
+    public void robotCast(Spell spell)
+    {
+    	string name = spell.getName();
+    	GameObject opponent = selection.GetComponent<casterScript>().opponent;
+
+		switch (name)
+		{
+			case "Fireball": // Fireball
+				spellHandle.castFireball(selection, opponent.transform.position, spell.getRange());
+				break;
+			case "Icicle": // Icicle
+				spellHandle.castIcicle(selection, opponent.transform.position, spell.getRange());
+				break;
+			case "Lightning": // Lightning
+				spellHandle.castLightning(selection, opponent.transform.position, spell.getRange());
+				break;
+			case "Cone of Flame": // Cone of Flame
+				spellHandle.castConeOfFlame(selection, opponent.transform.position);
+				break;
+			case "Cone of Frost": // Cone of Frost
+				spellHandle.castConeOfFrost(selection, opponent.transform.position);
+				break;
+			case "Cone of Shock": // Cone of Shock
+				spellHandle.castConeOfShock(selection, opponent.transform.position);
+				break;
+		}
+		turn++; // Switch turns
+		clearUI(); // Clear the UI and selection field
+
+        /////////////////////////
+		// Add minion to board //
+		/////////////////////////
+		minionScript[] minionListDuplicate = new minionScript[listMinions.Length + 1];
+
+		for (int i = 0; i < listMinions.Length; ++i)
+			minionListDuplicate[i] = listMinions[i];
+
+		GameObject newMinon = Instantiate(minionPrefab,
+			(new Vector3(0f, 0f, 0f)),
+			Quaternion.identity);
+
+		newMinon.transform.position = new Vector3(5f, 1.1f, 5f);
+		newMinon.tag = "Player2Minion";
+
+		newMinon.GetComponent<minionScript>().setOwner(turn);
+		minionListDuplicate[minionListDuplicate.Length - 1] = newMinon.GetComponent<minionScript>();
+
+		listMinions = minionListDuplicate;
+
+		//////////////////
+		// Move Minions //
+		//////////////////
+		if (listMinions == null || listMinions.Length == 0 || listMinions[0])
+			foreach (minionScript minion in listMinions)
+				if (minion != null)
+				{
+					/////////////////
+					// Check score //
+					/////////////////
+					for (int i = 0; i < Objectives.Length; ++i)
+					{
+						float distance = Vector3.Distance(Objectives[i].transform.position, minion.getPos());
+						if (distance < 7f)
+						{
+							if (minion.getOwner() % 2 != 0)
+								scoreRed += 2;
+							else
+								scoreBlue += 2;
+
+							updateScore();
+						}
+
+					}
+
+					minion.moveMinion();
+				}
+    }
 }
