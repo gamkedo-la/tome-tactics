@@ -1151,7 +1151,7 @@ RectTransform:
   m_Children:
   - {fileID: 2120736795}
   m_Father: {fileID: 1021055395}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1609,13 +1609,13 @@ MonoBehaviour:
     dice implementation\nChrister \"McFunkypants\" Kaitila: Player avatar model and
     related materials/effects, title screen background effects, logo, dice model and
     material, wood shader normal map, book material, glass material retouching\nTyler
-    Funk: Spell icons, desktop models (book, pencil, glass), UI scrolling, \nAlan
-    Zaring: Gameplay music\nJaime Rivas: Main menu music\nErik Verlage: Rock meshes
-    and rock texturing\nCole Andress: Multiple interaction bug fixes\nKlaim (A. Jo\xEBl
-    Lamotte): Particle texture for fireball\nBrian Nielsen: UI scaling\nRandy Tan
-    Shaoxian: Mouse over indicator when hovering over caster\nOsama \"Dorgam\" Alsalman:
-    Main menu button added to spell screen\n\nBackground room skybox is by Jan Ainali
-    under CCA license:\nhttps://creativecommons.org/licenses/by-sa/4.0/deed.en\nSource:\nhttps://commons.wikimedia.org/wiki/File:Interior_of_Hallwylska_360_degree_23.JPG\n\nGame
+    Funk: Spell icons, desktop models (book, pencil, glass), UI scrolling\nAlan Zaring:
+    Gameplay music\nJaime Rivas: Main menu music\nErik Verlage: Rock meshes and rock
+    texturing\nCole Andress: Multiple interaction bug fixes\nKlaim (A. Jo\xEBl Lamotte):
+    Particle texture for fireball\nBrian Nielsen: UI scaling\nRandy Tan Shaoxian:
+    Mouse over indicator when hovering over caster\nOsama \"Dorgam\" Alsalman: Main
+    menu button added to spell screen\n\nBackground room skybox is by Jan Ainali under
+    CCA license:\nhttps://creativecommons.org/licenses/by-sa/4.0/deed.en\nSource:\nhttps://commons.wikimedia.org/wiki/File:Interior_of_Hallwylska_360_degree_23.JPG\n\nGame
     created by members of Gamkedo Club - find out more, or join us, at gamkedo.com\n\n--
     CLICK ANYWHERE TO RETURN --"
 --- !u!222 &773966071
@@ -1741,7 +1741,7 @@ RectTransform:
   m_Children:
   - {fileID: 773966069}
   m_Father: {fileID: 1021055395}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1957,8 +1957,8 @@ RectTransform:
   - {fileID: 296364464}
   - {fileID: 1543397570}
   - {fileID: 662880729}
-  - {fileID: 993492293}
   - {fileID: 520015101}
+  - {fileID: 993492293}
   - {fileID: 558400390}
   m_Father: {fileID: 0}
   m_RootOrder: 1
