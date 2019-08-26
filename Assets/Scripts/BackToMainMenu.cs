@@ -17,12 +17,13 @@ public class BackToMainMenu : MonoBehaviour
         	
         	GameObject audioObject = GameObject.Find("Master Audio");
     	
-	    	if (audioObject != null)
+	    	if (audioObject != null) 
 				source = audioObject.GetComponent<AudioSource>();
 
-			source.PlayOneShot(bookClose);
+            if (source != null)
+                source.PlayOneShot(bookClose);
 
-        	SceneManager.LoadScene(1); 
+        	SceneManager.LoadScene("MainMenu"); 
         	});
     }
 }
